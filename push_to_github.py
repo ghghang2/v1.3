@@ -1,14 +1,10 @@
 #!/usr/bin/env python3
 """
-Push the contents of a local folder to a GitHub repo
-while respecting a .gitignore.
-
-* Works in Colab, Jupyter, or a local terminal.
-* Uses a token for authentication.
-* Creates the repo on GitHub if it does not exist.
-* Always pushes to a branch called `main`.
+Push a local folder to GitHub without leaking the PAT.
+The PAT must be supplied via the environment variable GITHUB_TOKEN.
 """
 
+import os
 import sys
 from pathlib import Path
 
@@ -19,10 +15,9 @@ from git import Repo, GitCommandError, InvalidGitRepositoryError
 # ------------------------------------------------------------------
 # USER SETTINGS
 # ------------------------------------------------------------------
-LOCAL_DIR      = Path(__file__).parent          # <-- folder you want to push
-REPO_NAME      = "v0"                      # GitHub repo name
-USER_NAME      = "ghghang2"         # e.g. ghghang2
-TOKEN          = "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"     # personal access token
+LOCAL_DIR   = Path(__file__).parent          # folder you want to push
+REPO_NAME   = "v0"                      # GitHub repo name
+USER_NAME   = "ghghang2"         # e.g. ghghang2
 
 IGNORED_ITEMS = [
     ".config",
@@ -35,18 +30,24 @@ IGNORED_ITEMS = [
 # ------------------------------------------------------------------
 # HELPERS
 # ------------------------------------------------------------------
+def token() -> str:
+    """Get the PAT from the environment."""
+    t = os.getenv("GITHUB_TOKEN")
+    if not t:
+        print("Error: GITHUB_TOKEN env variable not set.")
+        sys.exit(1)
+    return t
+
 def remote_url() -> str:
-    """HTTPS URL that contains the token (for git push)."""
-    return f"https://{USER_NAME}:{TOKEN}@github.com/{USER_NAME}/{REPO_NAME}.git"
+    """HTTPS URL that contains the token (used only for git push)."""
+    return f"https://{USER_NAME}:{token()}@github.com/{USER_NAME}/{REPO_NAME}.git"
 
 def ensure_remote(repo: Repo, url: str) -> None:
-    """Attach or replace the 'origin' remote."""
     if "origin" in repo.remotes:
         repo.delete_remote("origin")
     repo.create_remote("origin", url)
 
 def create_repo_if_missing(g: Github) -> None:
-    """Create the GitHub repo if it does not exist yet."""
     user = g.get_user()
     try:
         user.get_repo(REPO_NAME)
@@ -56,7 +57,6 @@ def create_repo_if_missing(g: Github) -> None:
         print(f"Created repo '{REPO_NAME}' on GitHub.")
 
 def write_gitignore(repo_path: Path, items: list[str]) -> None:
-    """Create a .gitignore that excludes the supplied items."""
     gitignore_path = repo_path / ".gitignore"
     gitignore_path.write_text("\n".join(items) + "\n")
     print(f"Created .gitignore at {gitignore_path}")
@@ -71,7 +71,7 @@ def main() -> None:
 
     repo_path = LOCAL_DIR
 
-    # Open an existing repo or create a new one
+    # Open or initialise repo
     try:
         repo = Repo(repo_path)
         if repo.bare:
@@ -82,7 +82,7 @@ def main() -> None:
         print(f"Initialised new git repo at {repo_path}")
 
     # Create the remote repo on GitHub (if needed)
-    g = Github(auth=Token(TOKEN))
+    g = Github(auth=Token(token()))
     create_repo_if_missing(g)
 
     # Attach the remote URL
@@ -94,9 +94,9 @@ def main() -> None:
     # Stage everything (ignores applied)
     repo.git.add(A=True)
 
-    # Commit – ignore "nothing to commit" error
+    # Commit – ignore “nothing to commit” error
     try:
-        repo.index.commit("Initial commit with .gitignore")
+        repo.index.commit("Initial commit")
         print("Committed changes.")
     except GitCommandError as e:
         if "nothing to commit" in str(e):
@@ -112,9 +112,8 @@ def main() -> None:
         repo.git.checkout("main")
         print("Switched to existing branch 'main'.")
 
-    # Push 'main' and set upstream
+    # Push to the remote and set upstream
     try:
-        # -u sets the upstream branch for future `git push` / `git pull`
         repo.git.push("-u", "origin", "main")
         print("Push complete. Remote 'main' is now tracked.")
     except GitCommandError as exc:
