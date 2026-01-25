@@ -61,7 +61,7 @@ def main() -> None:
 
     repo_path = LOCAL_DIR
 
-    # Open or init repo
+    # Open or initialise repo
     try:
         repo = Repo(repo_path)
         if repo.bare:
@@ -84,7 +84,7 @@ def main() -> None:
     # Stage everything (ignores applied)
     repo.git.add(A=True)
 
-    # Commit – always try; ignore error if nothing to commit
+    # Commit – always try; ignore “nothing to commit” error
     try:
         repo.index.commit("Initial commit with .gitignore")
         print("Committed changes.")
@@ -94,11 +94,21 @@ def main() -> None:
         else:
             raise
 
-    # Push – use HEAD so it works for new or existing repos
+    # --- NEW PART --------------------------------------------------
+    # Ensure we are on a branch called 'main'
+    if 'main' not in [b.name for b in repo.branches]:
+        repo.git.checkout('-b', 'main')
+        print("Created and switched to local branch 'main'.")
+    else:
+        repo.git.checkout('main')
+        print("Switched to existing branch 'main'.")
+
+    # Push local 'main' to the remote and set upstream
     try:
         origin = repo.remote("origin")
-        origin.push(refspec="HEAD:main", force=True)
-        print("Push complete.")
+        origin.push('main')
+        origin.set_upstream('main')
+        print("Push complete. Remote main is now tracked.")
     except GitCommandError as exc:
         print(f"Git operation failed: {exc}")
         sys.exit(1)
