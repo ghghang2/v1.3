@@ -1,0 +1,5 @@
+.config
+.ipynb_checkpoints
+sample_data
+llama-server
+nohup.out
