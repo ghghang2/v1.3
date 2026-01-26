@@ -117,17 +117,23 @@ def main() -> None:
     # Pull the latest changes from the remote so we can push
     # ------------------------------------------------------------------
     try:
+        # Ensure git is allowed to rebase automatically
+        repo.git.config('pull.rebase', 'true')
+
         # Rebase local commits onto the fetched remote branch.
-        # Pass the option *before* the remote/branch arguments.
-        repo.git.pull("--rebase", "origin", "main")
+        repo.git.pull('--rebase', 'origin', 'main')
     except GitCommandError as exc:
-        # If rebase fails, try a normal merge as a fallback.
+        # If rebase fails, fall back to a normal merge.
         print(f"Rebase failed: {exc}. Falling back to merge.")
-        repo.git.pull("origin", "main")
+        try:
+            repo.git.merge('origin/main')
+        except GitCommandError as merge_exc:
+            print(f"Merge also failed: {merge_exc}. Aborting push.")
+            sys.exit(1)
 
     # Push to the remote and set upstream
     try:
-        repo.git.push("-u", "origin", "main")
+        repo.git.push('-u', 'origin', 'main')
         print("Push complete. Remote 'main' is now tracked.")
     except GitCommandError as exc:
         print(f"Git operation failed: {exc}")
