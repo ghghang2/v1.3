@@ -27,6 +27,8 @@ def main() -> None:
     else:
         client.repo.git.checkout("main")
         client.repo.git.reset("--hard")
+    
+    client.ensure_main_branch()
 
     client.push()                   # 7️⃣  Push to GitHub
 

@@ -31,6 +31,7 @@ def _token() -> str:
 def _remote_url() -> str:
     """HTTPS URL that contains the PAT – used only for git push."""
     return f"https://{USER_NAME}:{_token()}@github.com/{USER_NAME}/{REPO_NAME}.git"
+    
 
 class RemoteClient:
     """Thin wrapper around gitpython + PyGithub."""
@@ -113,6 +114,24 @@ class RemoteClient:
             self.repo.delete_remote("origin")
         log.info("Adding new origin remote: %s", url)
         self.repo.create_remote("origin", url)
+    
+    def ensure_main_branch(self) -> None:
+        """
+        Make sure the local repository has a `main` branch.
+        If it does not exist, create it pointing at HEAD and set upstream.
+        """
+        if "main" not in self.repo.branches:
+            # Create a new branch named main pointing to the current HEAD
+            self.repo.git.branch("main")
+            log.info("Created local branch 'main'")
+
+        # Make sure main tracks origin/main
+        try:
+            self.repo.git.push("--set-upstream", "origin", "main")
+            log.info("Set upstream of local main to origin/main")
+        except GitCommandError:
+            # If the remote branch does not exist yet, just push normally
+            log.info("Remote main does not exist yet – will push normally")
 
     # ------------------------------------------------------------------ #
     #  Convenience helpers
