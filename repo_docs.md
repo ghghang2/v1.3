@@ -34,7 +34,7 @@ Application‑wide constants.
 NGROK_URL = "http://localhost:8000"
 
 MODEL_NAME = "unsloth/gpt-oss-20b-GGUF:F16"
-DEFAULT_SYSTEM_PROMPT = "Be concise and accurate at all times. When you see a request that involves creating or editing files, call the appropriate tool."
+DEFAULT_SYSTEM_PROMPT = "Be concise and accurate at all times. You are empowered with tools and should think carefully to consider if any tool use be helpful with the request."
 
 # --------------------------------------------------------------------------- #
 #  GitHub repository details
@@ -447,7 +447,6 @@ def get_tools() -> List[Dict]:
 # --------------------------------------------------------------------------- #
 if __name__ == "__main__":
     print(json.dumps(get_tools(), indent=2))
-"""
 
 ```
 
@@ -829,7 +828,63 @@ def stream_and_collect(client, messages, tools, placeholder):
     final_tool_calls = list(tool_calls_buffer.values()) if tool_calls_buffer else None
     return full_resp, final_tool_calls
 
+def process_tool_calls(client, messages, tools, placeholder):
+    """
+    For every tool call in *tool_calls*:
+        • call the tool
+        • append assistant_tool_call_msg + tool_msg to *messages*
+        • stream a new assistant reply
+    Return the final assistant text and the next list of tool calls.
+    """
+    full_text = ""
+    for tc in tool_calls:
+        args = json.loads(tc.get("arguments") or "{}")
+        func = next((t.func for t in TOOLS if t.name == tc.get("name")), None)
 
+        if func:
+            try:
+                result = func(**args)
+            except Exception as exc:
+                result = f"❌  Tool error: {exc}"
+        else:
+            result = f"⚠️  Unknown tool '{tc.get('name')}'"
+
+        # Build messages to send back to the model
+        assistant_tool_call_msg = {
+            "role": "assistant",
+            "content": None,
+            "tool_calls": [
+                {
+                    "id": tc.get("id"),
+                    "type": "function",
+                    "function": {
+                        "name": tc.get("name"),
+                        "arguments": tc.get("arguments") or "{}",
+                    },
+                }
+            ],
+        }
+
+        tool_msg = {
+            "role": "tool",
+            "tool_call_id": str(tc.get("id") or ""),
+            "content": str(result or ""),
+        }
+
+        messages.append(assistant_tool_call_msg)
+        messages.append(tool_msg)
+
+        # Stream the next assistant reply
+        new_text, new_tool_calls = stream_and_collect(
+            client, messages, tools, placeholder
+        )
+        full_text += new_text
+        tool_calls = new_tool_calls or []
+
+        if not tool_calls:  # no more calls – break early
+            break
+
+    return full_text, tool_calls
 # --------------------------------------------------------------------------- #
 #  Streamlit UI
 # --------------------------------------------------------------------------- #
