@@ -68,8 +68,14 @@ def main() -> None:
     st.markdown(
         """
         <style>
-        /* reduce spacing between widgets */
-        .stSidebar .css-1v0mbdj{margin: 0.1rem 0;}
+        /* force the sidebar wrapper to be 100 px */
+        .stSidebar { width: 150px !important; }
+
+        /* force the inner container that actually receives the width */
+        .stSidebar .css-1d391kg { width: 150px !important; }
+
+        /* optional: tighten the inner padding */
+        .stSidebar .css-1v0mbdj { padding: 0 !important; }
         </style>
         """,
         unsafe_allow_html=True,
@@ -90,8 +96,6 @@ def main() -> None:
             st.session_state.session_id = str(uuid.uuid4())
             st.session_state.history = []
             st.session_state.repo_docs = ""
-            st.session_state.has_pushed = False
-            st.success("Chat history cleared. Start fresh!")
             st.rerun()
 
         # --- advanced actions (collapsible)
