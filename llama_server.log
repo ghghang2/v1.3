@@ -1704,3 +1704,26 @@ prompt eval time =    4738.37 ms /  4207 tokens (    1.13 ms per token,   887.86
 srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
 slot      release: id  2 | task 33925 | stop processing: n_tokens = 6185, truncated = 0
 srv  update_slots: all slots are idle
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  1 | task -1 | selected slot by LRU, t_last = -1
+slot launch_slot_: id  1 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  1 | task 34887 | processing task, is_child = 0
+slot update_slots: id  1 | task 34887 | new prompt, n_ctx_slot = 64000, n_keep = 0, task.n_tokens = 5633
+slot update_slots: id  1 | task 34887 | n_tokens = 0, memory_seq_rm [0, end)
+slot update_slots: id  1 | task 34887 | prompt processing progress, n_tokens = 2048, batch.n_tokens = 2048, progress = 0.363572
+slot update_slots: id  1 | task 34887 | n_tokens = 2048, memory_seq_rm [2048, end)
+slot update_slots: id  1 | task 34887 | prompt processing progress, n_tokens = 4096, batch.n_tokens = 2048, progress = 0.727144
+slot update_slots: id  1 | task 34887 | n_tokens = 4096, memory_seq_rm [4096, end)
+slot update_slots: id  1 | task 34887 | prompt processing progress, n_tokens = 5569, batch.n_tokens = 1473, progress = 0.988638
+slot update_slots: id  1 | task 34887 | n_tokens = 5569, memory_seq_rm [5569, end)
+slot update_slots: id  1 | task 34887 | prompt processing progress, n_tokens = 5633, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  1 | task 34887 | prompt done, n_tokens = 5633, batch.n_tokens = 64
+slot init_sampler: id  1 | task 34887 | init sampler, took 1.06 ms, tokens: text = 5633, total = 5633
+slot update_slots: id  1 | task 34887 | created context checkpoint 1 of 8 (pos_min = 4799, pos_max = 5568, size = 18.056 MiB)
+slot print_timing: id  1 | task 34887 | 
+prompt eval time =    6679.80 ms /  5633 tokens (    1.19 ms per token,   843.29 tokens per second)
+       eval time =   26796.26 ms /  1016 tokens (   26.37 ms per token,    37.92 tokens per second)
+      total time =   33476.05 ms /  6649 tokens
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+slot      release: id  1 | task 34887 | stop processing: n_tokens = 6648, truncated = 0
+srv  update_slots: all slots are idle

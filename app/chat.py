@@ -152,9 +152,6 @@ def process_tool_calls(
     tools
         The list of OpenAI‑compatible tool definitions that will be passed
         to the ``chat.completions.create`` call.
-    placeholder
-        Streamlit placeholder that will receive the intermediate
-        assistant output.
     tool_calls
         The list of tool‑call objects produced by
         :func:`stream_and_collect`.  The function may return a new
@@ -202,16 +199,6 @@ def process_tool_calls(
 
                 if func:
                     try:
-                        # NOTE: Using a context‑managed ThreadPoolExecutor
-                        # blocks on shutdown until all worker threads have
-                        # finished, even if a ``future.result`` raises a
-                        # ``TimeoutError``. This caused the entire function
-                        # to hang for the remainder of the tool's runtime.
-                        #
-                        # Instead we create the executor manually and
-                        # immediately call ``shutdown(wait=False)`` after
-                        # the timeout, allowing the main thread to continue
-                        # while the background thread terminates.
                         executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
                         try:
                             future = executor.submit(func, **args)
