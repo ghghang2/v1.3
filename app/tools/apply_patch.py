@@ -119,8 +119,15 @@ def _parse_update_diff(lines: list[str], input_str: str):
 
     while not _is_done(parser, END_SECTION_MARKERS):
         anchor = _read_str(parser, "@@ ")
-        if anchor == "" and parser.index < len(parser.lines) and parser.lines[parser.index] == "@@":
+        has_bare_anchor = (
+            anchor == "" and parser.index < len(parser.lines) and parser.lines[parser.index] == "@@"
+        )
+        if has_bare_anchor:
             parser.index += 1
+        
+        if not (anchor or has_bare_anchor or cursor == 0):
+            current_line = parser.lines[parser.index] if parser.index < len(parser.lines) else ""
+            raise ValueError(f"Invalid Line:\n{current_line}")
         
         if anchor.strip():
             cursor = _advance_cursor(anchor, input_lines, cursor, parser)
@@ -129,7 +136,10 @@ def _parse_update_diff(lines: list[str], input_str: str):
         match = _find_context(input_lines, section.next_context, cursor, section.eof)
         
         if match.new_index == -1:
-            raise ValueError(f"Context match failed. Could not find context lines in the file.")
+            ctx_text = "\n".join(section.next_context)
+            if section.eof:
+                raise ValueError(f"Invalid EOF Context {cursor}:\n{ctx_text}")
+            raise ValueError(f"Invalid Context {cursor}:\n{ctx_text}")
 
         cursor = match.new_index + len(section.next_context)
         parser.fuzz += match.fuzz
