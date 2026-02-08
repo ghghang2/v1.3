@@ -21,6 +21,7 @@ import time
 import urllib.request
 from pathlib import Path
 from typing import Iterable
+import psutil
 
 # --------------------------------------------------------------------------- #
 #  Constants & helpers
@@ -256,15 +257,24 @@ def stop() -> None:
     ]:
         try:
             # First try a graceful terminate
-            os.kill(pid, signal.SIGTERM)
+            os.killpg(pid, signal.SIGTERM)
             print(f"✅  Sent SIGTERM to {name} (PID {pid})")
+            try:
+                proc = psutil.Process(pid)
+                for child in proc.children(recursive=True):
+                    child.terminate()
+                proc.terminate()
+                print(f"✅  {name} (PID {pid}) stopped (psutil)")
+            except: 
+                print(f"✅  {name} (PID {pid}) not running (psutil)")
+
         except OSError as exc:
             # If the process is already dead, we’re fine
             if exc.errno == errno.ESRCH:
-                print(f"⚠️  {name} (PID {pid}) was not running")
+                print(f"⚠️  {name} (PID {pid}) not running")
             else:
                 print(f"❌  Error stopping {name} (PID {pid}): {exc}")
-
+    
     # Optionally wait a moment for processes to exit
     time.sleep(1)
 
