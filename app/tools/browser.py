@@ -190,7 +190,6 @@ class BrowserManager:
 
 _mgr: BrowserManager | None = None
 
-
 def browser(action: str, *, url: str | None = None, path: str | None = None, selector: str | None = None, text: str | None = None, headless: bool | None = None, user_data_dir: str | None = None, proxy: str | None = None, timeout: int | None = None, **kwargs) -> str:
     """Perform a browser action.
 
@@ -279,3 +278,12 @@ def browser(action: str, *, url: str | None = None, path: str | None = None, sel
         return json.dumps({"error": f"Unknown action '{action}'"})
     except Exception as exc:
         return json.dumps({"error": str(exc)})
+
+# ---------------------------------------------------------------------------
+# Expose attributes for tool discovery
+# ---------------------------------------------------------------------------
+func = browser
+name = "browser"
+description = browser.__doc__ or "Perform browser actions via Playwright."
+
+__all__ = ["browser", "func", "name", "description"]

@@ -212,18 +212,23 @@ def process_tool_calls(
                 result = f"\u274c  JSON error: {exc}"
                 logger.exception("Failed to parse tool arguments", exc_info=True)
             else:
+                tool_name = tc.get("name")
                 logger.info(
                     "Calling tool %s with arguments %s",
-                    tc.get("name"),
+                    tool_name,
                     json.dumps(args),
                 )
-                func = next((t.func for t in TOOLS if t.name == tc.get("name")), None)
+                func = next((t.func for t in TOOLS if t.name == tool_name), None)
                 if func:
                     try:
                         executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
                         try:
+                            if tool_name=='browser':
+                                timeout_sec = 60
+                            else: 
+                                timeout_sec = 10
                             future = executor.submit(func, **args)
-                            result = future.result(timeout=60)
+                            result = future.result(timeout=timeout_sec)
                         except concurrent.futures.TimeoutError:  # pragma: no cover
                             result = (
                                 "\u26d4  Tool call timed out after 60 seconds. "
@@ -249,7 +254,7 @@ def process_tool_calls(
             st.empty().markdown(tool_block, unsafe_allow_html=True)
 
             tool_id = tc.get("id")
-            tool_name = tc.get("name")
+            
             tool_args = tc.get("arguments")
             messages.append(
                 {
