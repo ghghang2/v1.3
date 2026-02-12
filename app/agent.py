@@ -19,6 +19,22 @@ import logging
 import sys
 from multiprocessing import Process, Queue
 from typing import Dict, Any
+from dataclasses import dataclass
+
+@dataclass
+class AgentEvent:
+    """Simple event representation used between supervisor and agent.
+
+    Attributes
+    ----------
+    role:
+        Either ``assistant`` or ``user``.
+    content:
+        The textual content of the message.
+    """
+
+    role: str
+    content: str
 
 # Import the LLM wrapper (will be defined elsewhere)
 try:  # pragma: no cover - guard for dev environments
