@@ -160,9 +160,13 @@ class ChatUI:
         self.ask_code_btn.on_click(self._on_ask_code)
         
         # Session selector
+        # Ensure current session ID is in options
+        options = list(self.session_ids)
+        if self.session_id not in options:
+            options.append(self.session_id)
         self.session_dropdown = widgets.Dropdown(
-            options=self.session_ids,
-            value=self.session_id if self.session_id in self.session_ids else "",
+            options=options,
+            value=self.session_id,
             description="Session:",
             disabled=False,
             layout=widgets.Layout(width="100%")
@@ -315,9 +319,7 @@ class ChatUI:
                 children.append(self._render_tool_message(content, tool_id, tool_name, tool_args))
         
         self.chat_history.children = children
-        # Scroll to bottom
-        if children:
-            self.chat_history.children[-1].scroll_to()
+        # Scroll to bottom - disabled due to AttributeError (HTML widget has no scroll_to)
     
     def _render_user_message(self, content: str) -> widgets.HTML:
         """Create a widget for a user message."""
@@ -399,7 +401,13 @@ class ChatUI:
         self.session_id = str(uuid.uuid4())
         self.history = []
         self.repo_docs = ""
-        self.session_dropdown.options = lazy_import("app.db").get_session_ids()
+        # Update dropdown options to include existing sessions plus the new session
+        db = lazy_import("app.db")
+        options = list(db.get_session_ids())
+        if self.session_id not in options:
+            options.append(self.session_id)
+        self.session_dropdown.options = options
+        self.session_dropdown.value = self.session_id
         self._render_history()
     
     def _on_push_git(self, btn):
