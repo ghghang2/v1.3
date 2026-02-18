@@ -7,7 +7,6 @@ legacy module depend on the new one.
 
 import markdown
 
-
 def md_to_html(text: str) -> str:
     """Convert markdown to HTML using fenced code blocks.
 

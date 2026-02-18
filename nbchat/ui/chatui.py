@@ -3,26 +3,22 @@ from __future__ import annotations
 import ipywidgets as widgets
 import json
 import re
-import subprocess
+# import subprocess
 import threading
 import time
 import uuid
-from concurrent.futures import ThreadPoolExecutor, TimeoutError
+# from concurrent.futures import ThreadPoolExecutor, TimeoutError
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import List, Tuple
 
-import markdown  # for markdown rendering
+# import markdown  # for markdown rendering
 from IPython.display import display
 
 from nbchat.ui import chat_renderer as renderer
 from nbchat.ui import tool_executor as executor
+from nbchat.ui.utils import changed_files
 from nbchat.ui import chat_builder
 from nbchat.core.utils import lazy_import
-# Import changed_files from metrics_ui to display list of changed files
-try:
-    from app.metrics_ui import changed_files  # type: ignore
-except Exception:  # pragma: no cover - fallback if import fails
-    changed_files = lambda: []
 
 class ChatUI:
     """Chat interface with streaming, reasoning, and safe tool execution."""
@@ -217,12 +213,6 @@ class ChatUI:
                 children.append(renderer.render_tool(content, tool_name))
         self.chat_history.children = children
 
-    # def _render_user_message(self, content: str) -> widgets.HTML:
-    #     return renderer.render_user(content)
-
-    # def _render_analysis_message(self, content: str) -> widgets.HTML:
-    #     return renderer.render_reasoning(content)
-
     def _render_assistant_message(self, content: str, tool_id: str, tool_name: str, tool_args: str) -> widgets.HTML:
 
         if tool_id == "multiple":
@@ -344,51 +334,6 @@ class ChatUI:
                     "content": result
                 })
 
-            # Do NOT call _render_history() here – UI updated incrementally
-
-    # def _build_messages_for_api(self) -> List[Dict[str, Any]]:
-    #     messages = [{"role": "system", "content": self.system_prompt}]
-    #     for role, content, tool_id, tool_name, tool_args in self.history:
-    #         if role == "user":
-    #             messages.append({"role": "user", "content": content})
-    #         elif role == "assistant":
-    #             if tool_id:
-    #                 # Assistant row with a tool call (stored by log_tool_msg)
-    #                 # Construct a proper assistant message with tool_calls
-    #                 assistant_msg = {
-    #                     "role": "assistant",
-    #                     "content": content,
-    #                     "tool_calls": [
-    #                         {
-    #                             "id": tool_id,
-    #                             "type": "function",
-    #                             "function": {"name": tool_name, "arguments": tool_args}
-    #                         }
-    #                     ]
-    #                 }
-    #                 messages.append(assistant_msg)
-    #             else:
-    #                 messages.append({"role": "assistant", "content": content})
-    #         elif role == "assistant_full":
-    #             try:
-    #                 full_msg = json.loads(tool_args)
-    #                 messages.append(full_msg)
-    #             except:
-    #                 messages.append({"role": "assistant", "content": content})
-    #         elif role == "tool":
-    #             messages.append({
-    #                 "role": "tool",
-    #                 "tool_call_id": tool_id,
-    #                 "content": content
-    #             })
-    #     return messages
-
-    # def _strip_reasoning_content(self, messages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    #     for msg in messages:
-    #         if msg.get("role") == "assistant" and "reasoning_content" in msg:
-    #             del msg["reasoning_content"]
-    #     return messages
-
     def _stream_assistant_response(self, client, tools, messages):
         reasoning_placeholder = None
         assistant_placeholder = None
@@ -452,9 +397,3 @@ class ChatUI:
 
         tool_calls = [tool_calls_buffer[i] for i in sorted(tool_calls_buffer.keys())] if tool_calls_buffer else None
         return reasoning_accum, content_accum, tool_calls, finish_reason
-
-
-
-# ----------------------------------------------------------------------
-# Entry point
-# ----------------------------------------------------------------------
