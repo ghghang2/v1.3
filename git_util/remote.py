@@ -17,7 +17,7 @@ from github import Github
 from github.Auth import Token
 from github.Repository import Repository
 
-from .config import USER_NAME, REPO_NAME, IGNORED_ITEMS
+from nbchat.core.config import USER_NAME, REPO_NAME, IGNORED_ITEMS
 
 log = logging.getLogger(__name__)
 
@@ -28,9 +28,17 @@ def _token() -> str:
         raise RuntimeError("GITHUB_TOKEN env variable not set")
     return token
 
-def _remote_url() -> str:
-    """HTTPS URL that contains the PAT – used only for git push."""
-    return f"https://{USER_NAME}:{_token()}@github.com/{USER_NAME}/{REPO_NAME}.git"
+def _remote_url(repo_name: str | None = None) -> str:
+    """Return an HTTPS URL that contains the PAT.
+
+    Parameters
+    ----------
+    repo_name:
+        The repository name to use in the URL.  If ``None`` the default
+        :data:`~nbchat.core.config.REPO_NAME` is used.
+    """
+    repo_name = repo_name or REPO_NAME
+    return f"https://{USER_NAME}:{_token()}@github.com/{USER_NAME}/{repo_name}.git"
     
 
 class RemoteClient:
@@ -106,9 +114,20 @@ class RemoteClient:
             repo = self.user.create_repo(name, private=False)
         return repo
 
-    def attach_remote(self, url: Optional[str] = None) -> None:
+    def attach_remote(self, repo_name: str | None = None, url: Optional[str] = None) -> None:
+        """Create or replace the ``origin`` remote.
+
+        Parameters
+        ----------
+        repo_name:
+            Repository name to construct the default URL.  If ``url`` is
+            supplied it will take precedence.
+        url:
+            Explicit remote URL.  Useful when the remote URL does not follow
+            the conventional ``github.com/{user}/{repo}.git`` pattern.
+        """
         if url is None:
-            url = _remote_url()
+            url = _remote_url(repo_name)
         if "origin" in self.repo.remotes:
             log.info("Removing old origin remote")
             self.repo.delete_remote("origin")

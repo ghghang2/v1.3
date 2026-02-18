@@ -1,6 +1,0 @@
-version: 2
-authtoken: 39bQd3iRGNnvib2wzqNLAeHyXhV_66SQ8JSSf5fQwfx721jVY
-tunnels:
-  streamlit:
-    proto: http
-    addr: 8002

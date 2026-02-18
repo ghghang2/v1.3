@@ -2,7 +2,7 @@
 """
 Application‑wide constants.
 """
-from app.tools.repo_overview import func
+from nbchat.tools.repo_overview import func
 # --------------------------------------------------------------------------- #
 #  General settings
 # --------------------------------------------------------------------------- #
@@ -37,7 +37,7 @@ Think step‑by‑step before using tools, especially for complex tasks.
 #  GitHub repository details
 # --------------------------------------------------------------------------- #
 USER_NAME = "ghghang2"
-REPO_NAME = "v1.1"
+REPO_NAME = "v1.2"
 
 # --------------------------------------------------------------------------- #
 #  Items to ignore in the repo
