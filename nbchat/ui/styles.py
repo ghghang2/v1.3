@@ -35,7 +35,7 @@ import json
 # Background colors for different message types
 BACKGROUND_SYSTEM = "#f5f5f5"        # light gray (optional)
 BACKGROUND_USER = BACKGROUND_SYSTEM          
-BACKGROUND_ASSISTANT = "#B2FFB2"   
+BACKGROUND_ASSISTANT = "#F0FFF0"   
 BACKGROUND_REASONING = BACKGROUND_SYSTEM
 BACKGROUND_TOOL = BACKGROUND_SYSTEM
 
