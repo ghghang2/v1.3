@@ -303,13 +303,13 @@ class ChatUI:
 
             if reasoning:
                 self.history.append(("analysis", reasoning, "", "", ""))
-                self._maybe_compact()
+                self._maybe_compact(messages)
                 db.log_message(self.session_id, "analysis", reasoning)
 
             if not tool_calls or finish_reason != "tool_calls":
                 if content:
                     self.history.append(("assistant", content, "", "", ""))
-                    self._maybe_compact()
+                    self._maybe_compact(messages)
                     db.log_message(self.session_id, "assistant", content)
                 break
 
@@ -324,7 +324,7 @@ class ChatUI:
                         "reasoning_content": reasoning, "tool_calls": tool_calls}
             messages.append(full_msg)
             self.history.append(("assistant_full", "", "full", "full", json.dumps(full_msg)))
-            self._maybe_compact()
+            self._maybe_compact(messages)
             db.log_message(self.session_id, "assistant", content)
 
             for tc in tool_calls:
@@ -332,7 +332,7 @@ class ChatUI:
                 tool_args = tc["function"]["arguments"]
                 result = executor.run_tool(tool_name, tool_args)
                 self.history.append(("tool", result, tc["id"], tool_name, tool_args))
-                self._maybe_compact()
+                self._maybe_compact(messages)
                 db.log_tool_msg(self.session_id, tc["id"], tool_name, tool_args, result)
                 self._append(renderer.render_tool(result, tool_name, tool_args))
                 messages.append({"role": "tool", "tool_call_id": tc["id"], "content": result})
