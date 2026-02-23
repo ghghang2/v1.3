@@ -6,7 +6,7 @@ import threading
 from typing import List, Tuple, Optional
 from nbchat.ui.chat_builder import build_messages
 from nbchat.core.client import get_client
-
+import concurrent.futures
 
 class CompactionEngine:
     """Compacts chat history when token count exceeds threshold."""
@@ -28,6 +28,8 @@ class CompactionEngine:
         self.system_prompt = system_prompt
         self._cache = {}  # message hash -> token count
         self._cache_lock = threading.Lock()
+        self._executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+        self._pending: concurrent.futures.Future | None = None
     
     def _estimate_tokens(self, text: str) -> int:
         """Simple token estimation: ~4 characters per token."""

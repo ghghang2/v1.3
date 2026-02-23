@@ -60,10 +60,5 @@ IGNORED_ITEMS = [
 CONTEXT_TOKEN_THRESHOLD = 100
 TAIL_MESSAGES = 5
 SUMMARY_PROMPT = (
-    "Summarize the conversation so far, focusing on:\n"
-    "1. Key decisions made\n"
-    "2. Important file paths and edits\n"
-    "3. Tool calls and their outcomes (summarize large outputs)\n"
-    "4. Next steps planned\n"
-    "Keep it concise but preserve key information. Ensure you can pick up the conversation in the future without missing key information."
+    "In the most compact way possible, summarize the conversation so far, focusing on key results and guidance for next steps, if any."
 )

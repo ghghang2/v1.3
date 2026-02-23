@@ -200,23 +200,37 @@ class ChatUI:
         self.chat_history.children = children
 
     def _maybe_compact(self, messages=None):
+        """Fire off async compaction if threshold exceeded. Does not block."""
         if not self.history:
             return
         if self.compaction_engine.should_compact(self.history):
-            try:
-                db = lazy_import("nbchat.core.db")
-                new_history = self.compaction_engine.compact_history(self.history)
-                self.history = new_history
-                self._render_history()
-                # Log the compacted summary so it survives reload
-                summary_role, summary_content = new_history[0][0], new_history[0][1]
-                db.replace_session_history(self.session_id, new_history)
-                if messages is not None:
-                    messages.clear()
-                    messages.extend(chat_builder.build_messages(self.history, self.system_prompt))
-            except Exception as e:
-                import sys
-                print(f"Compaction failed: {e}", file=sys.stderr)
+            # Cancel any previous pending compaction before submitting a new one
+            if self.compaction_engine._pending and not self.compaction_engine._pending.done():
+                self.compaction_engine._pending.cancel()
+            # Take a snapshot of history for the background thread
+            history_snapshot = list(self.history)
+            self.compaction_engine._pending = self.compaction_engine._executor.submit(
+                self.compaction_engine.compact_history, history_snapshot
+            )
+    
+    def _drain_compaction(self, messages):
+        """Call at the start of each turn to apply any pending compaction."""
+        future = self.compaction_engine._pending
+        if future is None:
+            return
+        try:
+            new_history = future.result(timeout=30)  # block here, but turn hasn't started yet
+            self.compaction_engine._pending = None
+            db = lazy_import("nbchat.core.db")
+            self.history = new_history
+            self._render_history()
+            db.replace_session_history(self.session_id, new_history)
+            messages.clear()
+            messages.extend(chat_builder.build_messages(self.history, self.system_prompt))
+        except Exception as e:
+            import sys
+            print(f"Compaction failed: {e}", file=sys.stderr)
+            self.compaction_engine._pending = None
 
     def _widget_for_assistant(self, content: str, tool_id: str, tool_args: str) -> widgets.HTML:
         if tool_id == "multiple":
@@ -249,35 +263,27 @@ class ChatUI:
             self._load_history()
 
     def _on_send(self, _):
-        """Send the current text.
-
-        This method now implements the *interjection* behaviour.  It is
-        fully thread‑safe: all shared state is accessed while holding
-        ``self._history_lock``.  The UI thread releases the lock before
-        waiting for the old stream thread to finish, keeping the UI
-        responsive.
-        """
         user_input = self.input_text.value.strip()
         if not user_input:
             return
 
         db = lazy_import("nbchat.core.db")
         with self._history_lock:
-            # Stop an existing stream if it is running.
+            # Stop existing stream if running
             if self._stream_thread and self._stream_thread.is_alive():
-                # Signal the streaming thread to stop.
                 self._stop_streaming = True
-                # Release the lock while we wait for the thread to finish.
-                # The thread itself checks the flag and exits.
                 self._stream_thread.join()
 
-            # Append the new user message.
+            # Cancel any pending compaction from the previous turn
+            if self.compaction_engine._pending and not self.compaction_engine._pending.done():
+                self.compaction_engine._pending.cancel()
+            self.compaction_engine._pending = None
+
+            # Append the new user message
             self.history.append(("user", user_input, "", "", ""))
             self._append(renderer.render_user(user_input))
-            self._maybe_compact()
             db.log_message(self.session_id, "user", user_input)
 
-            # Clear the input box after logging.
             self.input_text.value = ""
             self._stop_streaming = False
             self._stream_thread = threading.Thread(
@@ -301,6 +307,7 @@ class ChatUI:
             if self._stop_streaming:
                 # A new interjection has started; stop processing.
                 break
+            self._drain_compaction(messages) 
             reasoning, content, tool_calls, finish_reason = self._stream_response(client, tools, messages)
 
             if reasoning:

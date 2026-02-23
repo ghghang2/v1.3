@@ -523,3 +523,860 @@ prompt eval time =     495.85 ms /   185 tokens (    2.68 ms per token,   373.10
 slot      release: id  2 | task 1694 | stop processing: n_tokens = 783, truncated = 0
 srv  update_slots: all slots are idle
 srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.989 (> 0.100 thold), f_keep = 0.605
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 1863 | processing task, is_child = 0
+slot update_slots: id  3 | task 1863 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 889
+slot update_slots: id  3 | task 1863 | n_past = 879, slot.prompt.tokens.size() = 1452, seq_id = 3, pos_min = 1160, n_swa = 128
+slot update_slots: id  3 | task 1863 | restored context checkpoint (pos_min = 382, pos_max = 1278, size = 21.034 MiB)
+slot update_slots: id  3 | task 1863 | n_tokens = 879, memory_seq_rm [879, end)
+slot update_slots: id  3 | task 1863 | prompt processing progress, n_tokens = 889, batch.n_tokens = 10, progress = 1.000000
+slot update_slots: id  3 | task 1863 | prompt done, n_tokens = 889, batch.n_tokens = 10
+slot init_sampler: id  3 | task 1863 | init sampler, took 0.17 ms, tokens: text = 889, total = 889
+slot print_timing: id  3 | task 1863 | 
+prompt eval time =     820.99 ms /    10 tokens (   82.10 ms per token,    12.18 tokens per second)
+       eval time =    1239.74 ms /    42 tokens (   29.52 ms per token,    33.88 tokens per second)
+      total time =    2060.74 ms /    52 tokens
+slot      release: id  3 | task 1863 | stop processing: n_tokens = 930, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.849 (> 0.100 thold), f_keep = 0.982
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 1906 | processing task, is_child = 0
+slot update_slots: id  3 | task 1906 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 1076
+slot update_slots: id  3 | task 1906 | n_tokens = 913, memory_seq_rm [913, end)
+slot update_slots: id  3 | task 1906 | prompt processing progress, n_tokens = 1012, batch.n_tokens = 99, progress = 0.940520
+slot update_slots: id  3 | task 1906 | n_tokens = 1012, memory_seq_rm [1012, end)
+slot update_slots: id  3 | task 1906 | prompt processing progress, n_tokens = 1076, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  3 | task 1906 | prompt done, n_tokens = 1076, batch.n_tokens = 64
+slot init_sampler: id  3 | task 1906 | init sampler, took 0.18 ms, tokens: text = 1076, total = 1076
+slot print_timing: id  3 | task 1906 | 
+prompt eval time =     416.24 ms /   163 tokens (    2.55 ms per token,   391.60 tokens per second)
+       eval time =    3068.25 ms /   108 tokens (   28.41 ms per token,    35.20 tokens per second)
+      total time =    3484.49 ms /   271 tokens
+slot      release: id  3 | task 1906 | stop processing: n_tokens = 1183, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.760 (> 0.100 thold), f_keep = 0.751
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 2016 | processing task, is_child = 0
+slot update_slots: id  3 | task 2016 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 1170
+slot update_slots: id  3 | task 2016 | n_tokens = 889, memory_seq_rm [889, end)
+slot update_slots: id  3 | task 2016 | prompt processing progress, n_tokens = 1106, batch.n_tokens = 217, progress = 0.945299
+slot update_slots: id  3 | task 2016 | n_tokens = 1106, memory_seq_rm [1106, end)
+slot update_slots: id  3 | task 2016 | prompt processing progress, n_tokens = 1170, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  3 | task 2016 | prompt done, n_tokens = 1170, batch.n_tokens = 64
+slot init_sampler: id  3 | task 2016 | init sampler, took 0.20 ms, tokens: text = 1170, total = 1170
+slot print_timing: id  3 | task 2016 | 
+prompt eval time =     625.24 ms /   281 tokens (    2.23 ms per token,   449.43 tokens per second)
+       eval time =    2574.05 ms /    91 tokens (   28.29 ms per token,    35.35 tokens per second)
+      total time =    3199.29 ms /   372 tokens
+slot      release: id  3 | task 2016 | stop processing: n_tokens = 1260, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 0.612 (> 0.100 thold), f_keep = 0.543
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 2109 | processing task, is_child = 0
+slot update_slots: id  2 | task 2109 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 694
+slot update_slots: id  2 | task 2109 | n_past = 425, slot.prompt.tokens.size() = 783, seq_id = 2, pos_min = 656, n_swa = 128
+slot update_slots: id  2 | task 2109 | restored context checkpoint (pos_min = 0, pos_max = 648, size = 15.219 MiB)
+slot update_slots: id  2 | task 2109 | n_tokens = 425, memory_seq_rm [425, end)
+slot update_slots: id  2 | task 2109 | prompt processing progress, n_tokens = 630, batch.n_tokens = 205, progress = 0.907781
+slot update_slots: id  2 | task 2109 | n_tokens = 630, memory_seq_rm [630, end)
+slot update_slots: id  2 | task 2109 | prompt processing progress, n_tokens = 694, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  2 | task 2109 | prompt done, n_tokens = 694, batch.n_tokens = 64
+slot init_sampler: id  2 | task 2109 | init sampler, took 0.16 ms, tokens: text = 694, total = 694
+slot print_timing: id  2 | task 2109 | 
+prompt eval time =    1134.18 ms /   269 tokens (    4.22 ms per token,   237.17 tokens per second)
+       eval time =    5215.95 ms /   186 tokens (   28.04 ms per token,    35.66 tokens per second)
+      total time =    6350.14 ms /   455 tokens
+slot      release: id  2 | task 2109 | stop processing: n_tokens = 879, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.712 (> 0.100 thold), f_keep = 0.698
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 2297 | processing task, is_child = 0
+slot update_slots: id  3 | task 2297 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 1235
+slot update_slots: id  3 | task 2297 | n_past = 879, slot.prompt.tokens.size() = 1260, seq_id = 3, pos_min = 1133, n_swa = 128
+slot update_slots: id  3 | task 2297 | restored context checkpoint (pos_min = 382, pos_max = 1278, size = 21.034 MiB)
+slot update_slots: id  3 | task 2297 | n_tokens = 879, memory_seq_rm [879, end)
+slot update_slots: id  3 | task 2297 | prompt processing progress, n_tokens = 1171, batch.n_tokens = 292, progress = 0.948178
+slot update_slots: id  3 | task 2297 | n_tokens = 1171, memory_seq_rm [1171, end)
+slot update_slots: id  3 | task 2297 | prompt processing progress, n_tokens = 1235, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  3 | task 2297 | prompt done, n_tokens = 1235, batch.n_tokens = 64
+slot init_sampler: id  3 | task 2297 | init sampler, took 0.20 ms, tokens: text = 1235, total = 1235
+slot print_timing: id  3 | task 2297 | 
+prompt eval time =    1086.29 ms /   356 tokens (    3.05 ms per token,   327.72 tokens per second)
+       eval time =    3850.05 ms /   144 tokens (   26.74 ms per token,    37.40 tokens per second)
+      total time =    4936.34 ms /   500 tokens
+slot      release: id  3 | task 2297 | stop processing: n_tokens = 1378, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 0.699 (> 0.100 thold), f_keep = 0.484
+srv  get_availabl: updating prompt cache
+srv   prompt_save:  - saving prompt with length 879, total state size = 23.590 MiB
+srv          load:  - looking for better prompt, base f_keep = 0.484, sim = 0.699
+srv        update:  - cache state: 3 prompts, 117.763 MiB (limits: 8192.000 MiB, 56064 tokens, 187403 est)
+srv        update:    - prompt 0x55ea7c0a37c0:     930 tokens, checkpoints:  1,    40.005 MiB
+srv        update:    - prompt 0x55ea7c07a2a0:     885 tokens, checkpoints:  1,    38.950 MiB
+srv        update:    - prompt 0x55ea7d3b3450:     879 tokens, checkpoints:  1,    38.809 MiB
+srv  get_availabl: prompt cache update took 44.02 ms
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 2443 | processing task, is_child = 0
+slot update_slots: id  2 | task 2443 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 608
+slot update_slots: id  2 | task 2443 | n_past = 425, slot.prompt.tokens.size() = 879, seq_id = 2, pos_min = 752, n_swa = 128
+slot update_slots: id  2 | task 2443 | restored context checkpoint (pos_min = 0, pos_max = 648, size = 15.219 MiB)
+slot update_slots: id  2 | task 2443 | n_tokens = 425, memory_seq_rm [425, end)
+slot update_slots: id  2 | task 2443 | prompt processing progress, n_tokens = 544, batch.n_tokens = 119, progress = 0.894737
+slot update_slots: id  2 | task 2443 | n_tokens = 544, memory_seq_rm [544, end)
+slot update_slots: id  2 | task 2443 | prompt processing progress, n_tokens = 608, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  2 | task 2443 | prompt done, n_tokens = 608, batch.n_tokens = 64
+slot init_sampler: id  2 | task 2443 | init sampler, took 0.13 ms, tokens: text = 608, total = 608
+slot print_timing: id  2 | task 2443 | 
+prompt eval time =     496.15 ms /   183 tokens (    2.71 ms per token,   368.84 tokens per second)
+       eval time =    5728.51 ms /   184 tokens (   31.13 ms per token,    32.12 tokens per second)
+      total time =    6224.65 ms /   367 tokens
+slot      release: id  2 | task 2443 | stop processing: n_tokens = 791, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 0.853 (> 0.100 thold), f_keep = 0.537
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 2629 | processing task, is_child = 0
+slot update_slots: id  2 | task 2629 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 498
+slot update_slots: id  2 | task 2629 | n_tokens = 425, memory_seq_rm [425, end)
+slot update_slots: id  2 | task 2629 | prompt processing progress, n_tokens = 434, batch.n_tokens = 9, progress = 0.871486
+slot update_slots: id  2 | task 2629 | n_tokens = 434, memory_seq_rm [434, end)
+slot update_slots: id  2 | task 2629 | prompt processing progress, n_tokens = 498, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  2 | task 2629 | prompt done, n_tokens = 498, batch.n_tokens = 64
+slot init_sampler: id  2 | task 2629 | init sampler, took 0.09 ms, tokens: text = 498, total = 498
+slot print_timing: id  2 | task 2629 | 
+prompt eval time =     400.98 ms /    73 tokens (    5.49 ms per token,   182.06 tokens per second)
+       eval time =    6604.26 ms /   217 tokens (   30.43 ms per token,    32.86 tokens per second)
+      total time =    7005.23 ms /   290 tokens
+slot      release: id  2 | task 2629 | stop processing: n_tokens = 714, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.728 (> 0.100 thold), f_keep = 0.638
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 2848 | processing task, is_child = 0
+slot update_slots: id  3 | task 2848 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 1208
+slot update_slots: id  3 | task 2848 | n_past = 879, slot.prompt.tokens.size() = 1378, seq_id = 3, pos_min = 1145, n_swa = 128
+slot update_slots: id  3 | task 2848 | restored context checkpoint (pos_min = 382, pos_max = 1278, size = 21.034 MiB)
+slot update_slots: id  3 | task 2848 | n_tokens = 879, memory_seq_rm [879, end)
+slot update_slots: id  3 | task 2848 | prompt processing progress, n_tokens = 1144, batch.n_tokens = 265, progress = 0.947020
+slot update_slots: id  3 | task 2848 | n_tokens = 1144, memory_seq_rm [1144, end)
+slot update_slots: id  3 | task 2848 | prompt processing progress, n_tokens = 1208, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  3 | task 2848 | prompt done, n_tokens = 1208, batch.n_tokens = 64
+slot init_sampler: id  3 | task 2848 | init sampler, took 0.21 ms, tokens: text = 1208, total = 1208
+slot print_timing: id  3 | task 2848 | 
+prompt eval time =    1200.32 ms /   329 tokens (    3.65 ms per token,   274.09 tokens per second)
+       eval time =    1949.93 ms /    67 tokens (   29.10 ms per token,    34.36 tokens per second)
+      total time =    3150.25 ms /   396 tokens
+slot      release: id  3 | task 2848 | stop processing: n_tokens = 1274, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 1.000 (> 0.100 thold), f_keep = 0.697
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 2917 | processing task, is_child = 0
+slot update_slots: id  2 | task 2917 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 498
+slot update_slots: id  2 | task 2917 | n_past = 498, slot.prompt.tokens.size() = 714, seq_id = 2, pos_min = 587, n_swa = 128
+slot update_slots: id  2 | task 2917 | restored context checkpoint (pos_min = 0, pos_max = 648, size = 15.219 MiB)
+slot update_slots: id  2 | task 2917 | need to evaluate at least 1 token for each active slot (n_past = 498, task.n_tokens() = 498)
+slot update_slots: id  2 | task 2917 | n_past was set to 497
+slot update_slots: id  2 | task 2917 | n_tokens = 497, memory_seq_rm [497, end)
+slot update_slots: id  2 | task 2917 | prompt processing progress, n_tokens = 498, batch.n_tokens = 1, progress = 1.000000
+slot update_slots: id  2 | task 2917 | prompt done, n_tokens = 498, batch.n_tokens = 1
+slot init_sampler: id  2 | task 2917 | init sampler, took 0.09 ms, tokens: text = 498, total = 498
+slot print_timing: id  2 | task 2917 | 
+prompt eval time =     384.20 ms /     1 tokens (  384.20 ms per token,     2.60 tokens per second)
+       eval time =    7768.51 ms /   256 tokens (   30.35 ms per token,    32.95 tokens per second)
+      total time =    8152.72 ms /   257 tokens
+slot      release: id  2 | task 2917 | stop processing: n_tokens = 753, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 1.000 (> 0.100 thold), f_keep = 0.661
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 3174 | processing task, is_child = 0
+slot update_slots: id  2 | task 3174 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 498
+slot update_slots: id  2 | task 3174 | need to evaluate at least 1 token for each active slot (n_past = 498, task.n_tokens() = 498)
+slot update_slots: id  2 | task 3174 | n_past was set to 497
+slot update_slots: id  2 | task 3174 | n_tokens = 497, memory_seq_rm [497, end)
+slot update_slots: id  2 | task 3174 | prompt processing progress, n_tokens = 498, batch.n_tokens = 1, progress = 1.000000
+slot update_slots: id  2 | task 3174 | prompt done, n_tokens = 498, batch.n_tokens = 1
+slot init_sampler: id  2 | task 3174 | init sampler, took 0.10 ms, tokens: text = 498, total = 498
+slot print_timing: id  2 | task 3174 | 
+prompt eval time =      30.66 ms /     1 tokens (   30.66 ms per token,    32.62 tokens per second)
+       eval time =    1445.46 ms /    49 tokens (   29.50 ms per token,    33.90 tokens per second)
+      total time =    1476.12 ms /    50 tokens
+slot      release: id  2 | task 3174 | stop processing: n_tokens = 546, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 0.575 (> 0.100 thold), f_keep = 0.782
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 3224 | processing task, is_child = 0
+slot update_slots: id  2 | task 3224 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 743
+slot update_slots: id  2 | task 3224 | n_tokens = 427, memory_seq_rm [427, end)
+slot update_slots: id  2 | task 3224 | prompt processing progress, n_tokens = 679, batch.n_tokens = 252, progress = 0.913863
+slot update_slots: id  2 | task 3224 | n_tokens = 679, memory_seq_rm [679, end)
+slot update_slots: id  2 | task 3224 | prompt processing progress, n_tokens = 743, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  2 | task 3224 | prompt done, n_tokens = 743, batch.n_tokens = 64
+slot init_sampler: id  2 | task 3224 | init sampler, took 0.14 ms, tokens: text = 743, total = 743
+slot print_timing: id  2 | task 3224 | 
+prompt eval time =     577.34 ms /   316 tokens (    1.83 ms per token,   547.34 tokens per second)
+       eval time =    5409.55 ms /   182 tokens (   29.72 ms per token,    33.64 tokens per second)
+      total time =    5986.90 ms /   498 tokens
+slot      release: id  2 | task 3224 | stop processing: n_tokens = 924, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.704 (> 0.100 thold), f_keep = 0.690
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 3408 | processing task, is_child = 0
+slot update_slots: id  3 | task 3408 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 1248
+slot update_slots: id  3 | task 3408 | n_past = 879, slot.prompt.tokens.size() = 1274, seq_id = 3, pos_min = 1147, n_swa = 128
+slot update_slots: id  3 | task 3408 | restored context checkpoint (pos_min = 382, pos_max = 1278, size = 21.034 MiB)
+slot update_slots: id  3 | task 3408 | n_tokens = 879, memory_seq_rm [879, end)
+slot update_slots: id  3 | task 3408 | prompt processing progress, n_tokens = 1184, batch.n_tokens = 305, progress = 0.948718
+slot update_slots: id  3 | task 3408 | n_tokens = 1184, memory_seq_rm [1184, end)
+slot update_slots: id  3 | task 3408 | prompt processing progress, n_tokens = 1248, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  3 | task 3408 | prompt done, n_tokens = 1248, batch.n_tokens = 64
+slot init_sampler: id  3 | task 3408 | init sampler, took 0.23 ms, tokens: text = 1248, total = 1248
+slot print_timing: id  3 | task 3408 | 
+prompt eval time =    1098.13 ms /   369 tokens (    2.98 ms per token,   336.03 tokens per second)
+       eval time =    5071.25 ms /   166 tokens (   30.55 ms per token,    32.73 tokens per second)
+      total time =    6169.38 ms /   535 tokens
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+slot      release: id  3 | task 3408 | stop processing: n_tokens = 1413, truncated = 0
+srv  update_slots: all slots are idle
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 0.660 (> 0.100 thold), f_keep = 0.460
+srv  get_availabl: updating prompt cache
+srv   prompt_save:  - saving prompt with length 924, total state size = 24.645 MiB
+srv          load:  - looking for better prompt, base f_keep = 0.460, sim = 0.660
+srv        update:  - cache state: 4 prompts, 157.627 MiB (limits: 8192.000 MiB, 56064 tokens, 188029 est)
+srv        update:    - prompt 0x55ea7c0a37c0:     930 tokens, checkpoints:  1,    40.005 MiB
+srv        update:    - prompt 0x55ea7c07a2a0:     885 tokens, checkpoints:  1,    38.950 MiB
+srv        update:    - prompt 0x55ea7d3b3450:     879 tokens, checkpoints:  1,    38.809 MiB
+srv        update:    - prompt 0x55ea7d3b32f0:     924 tokens, checkpoints:  1,    39.864 MiB
+srv  get_availabl: prompt cache update took 43.55 ms
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 3576 | processing task, is_child = 0
+slot update_slots: id  2 | task 3576 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 644
+slot update_slots: id  2 | task 3576 | n_past = 425, slot.prompt.tokens.size() = 924, seq_id = 2, pos_min = 797, n_swa = 128
+slot update_slots: id  2 | task 3576 | restored context checkpoint (pos_min = 0, pos_max = 648, size = 15.219 MiB)
+slot update_slots: id  2 | task 3576 | n_tokens = 425, memory_seq_rm [425, end)
+slot update_slots: id  2 | task 3576 | prompt processing progress, n_tokens = 580, batch.n_tokens = 155, progress = 0.900621
+slot update_slots: id  2 | task 3576 | n_tokens = 580, memory_seq_rm [580, end)
+slot update_slots: id  2 | task 3576 | prompt processing progress, n_tokens = 644, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  2 | task 3576 | prompt done, n_tokens = 644, batch.n_tokens = 64
+slot init_sampler: id  2 | task 3576 | init sampler, took 0.14 ms, tokens: text = 644, total = 644
+slot print_timing: id  2 | task 3576 | 
+prompt eval time =     465.44 ms /   219 tokens (    2.13 ms per token,   470.52 tokens per second)
+       eval time =   10127.69 ms /   342 tokens (   29.61 ms per token,    33.77 tokens per second)
+      total time =   10593.13 ms /   561 tokens
+slot      release: id  2 | task 3576 | stop processing: n_tokens = 985, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 0.853 (> 0.100 thold), f_keep = 0.431
+srv  get_availabl: updating prompt cache
+srv   prompt_save:  - saving prompt with length 985, total state size = 44.131 MiB
+srv          load:  - looking for better prompt, base f_keep = 0.431, sim = 0.853
+srv          load:  - found better prompt with f_keep = 0.459, sim = 0.857
+srv        update:  - cache state: 4 prompts, 176.973 MiB (limits: 8192.000 MiB, 56064 tokens, 170021 est)
+srv        update:    - prompt 0x55ea7c07a2a0:     885 tokens, checkpoints:  1,    38.950 MiB
+srv        update:    - prompt 0x55ea7d3b3450:     879 tokens, checkpoints:  1,    38.809 MiB
+srv        update:    - prompt 0x55ea7d3b32f0:     924 tokens, checkpoints:  1,    39.864 MiB
+srv        update:    - prompt 0x55ea7d83b270:     985 tokens, checkpoints:  1,    59.350 MiB
+srv  get_availabl: prompt cache update took 834.81 ms
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 3920 | processing task, is_child = 0
+slot update_slots: id  2 | task 3920 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 498
+slot update_slots: id  2 | task 3920 | n_past = 427, slot.prompt.tokens.size() = 930, seq_id = 2, pos_min = 803, n_swa = 128
+slot update_slots: id  2 | task 3920 | restored context checkpoint (pos_min = 0, pos_max = 648, size = 15.219 MiB)
+slot update_slots: id  2 | task 3920 | n_tokens = 427, memory_seq_rm [427, end)
+slot update_slots: id  2 | task 3920 | prompt processing progress, n_tokens = 434, batch.n_tokens = 7, progress = 0.871486
+slot update_slots: id  2 | task 3920 | n_tokens = 434, memory_seq_rm [434, end)
+slot update_slots: id  2 | task 3920 | prompt processing progress, n_tokens = 498, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  2 | task 3920 | prompt done, n_tokens = 498, batch.n_tokens = 64
+slot init_sampler: id  2 | task 3920 | init sampler, took 0.09 ms, tokens: text = 498, total = 498
+slot print_timing: id  2 | task 3920 | 
+prompt eval time =     337.14 ms /    71 tokens (    4.75 ms per token,   210.60 tokens per second)
+       eval time =    7710.44 ms /   266 tokens (   28.99 ms per token,    34.50 tokens per second)
+      total time =    8047.58 ms /   337 tokens
+slot      release: id  2 | task 3920 | stop processing: n_tokens = 763, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.711 (> 0.100 thold), f_keep = 0.622
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 4188 | processing task, is_child = 0
+slot update_slots: id  3 | task 4188 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 1237
+slot update_slots: id  3 | task 4188 | n_past = 879, slot.prompt.tokens.size() = 1413, seq_id = 3, pos_min = 1286, n_swa = 128
+slot update_slots: id  3 | task 4188 | restored context checkpoint (pos_min = 382, pos_max = 1278, size = 21.034 MiB)
+slot update_slots: id  3 | task 4188 | n_tokens = 879, memory_seq_rm [879, end)
+slot update_slots: id  3 | task 4188 | prompt processing progress, n_tokens = 1173, batch.n_tokens = 294, progress = 0.948262
+slot update_slots: id  3 | task 4188 | n_tokens = 1173, memory_seq_rm [1173, end)
+slot update_slots: id  3 | task 4188 | prompt processing progress, n_tokens = 1237, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  3 | task 4188 | prompt done, n_tokens = 1237, batch.n_tokens = 64
+slot init_sampler: id  3 | task 4188 | init sampler, took 0.21 ms, tokens: text = 1237, total = 1237
+slot print_timing: id  3 | task 4188 | 
+prompt eval time =    1096.83 ms /   358 tokens (    3.06 ms per token,   326.39 tokens per second)
+       eval time =    2250.29 ms /    74 tokens (   30.41 ms per token,    32.88 tokens per second)
+      total time =    3347.12 ms /   432 tokens
+slot      release: id  3 | task 4188 | stop processing: n_tokens = 1310, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 1.000 (> 0.100 thold), f_keep = 0.653
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 4264 | processing task, is_child = 0
+slot update_slots: id  2 | task 4264 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 498
+slot update_slots: id  2 | task 4264 | n_past = 498, slot.prompt.tokens.size() = 763, seq_id = 2, pos_min = 636, n_swa = 128
+slot update_slots: id  2 | task 4264 | restored context checkpoint (pos_min = 0, pos_max = 648, size = 15.219 MiB)
+slot update_slots: id  2 | task 4264 | need to evaluate at least 1 token for each active slot (n_past = 498, task.n_tokens() = 498)
+slot update_slots: id  2 | task 4264 | n_past was set to 497
+slot update_slots: id  2 | task 4264 | n_tokens = 497, memory_seq_rm [497, end)
+slot update_slots: id  2 | task 4264 | prompt processing progress, n_tokens = 498, batch.n_tokens = 1, progress = 1.000000
+slot update_slots: id  2 | task 4264 | prompt done, n_tokens = 498, batch.n_tokens = 1
+slot init_sampler: id  2 | task 4264 | init sampler, took 0.09 ms, tokens: text = 498, total = 498
+slot print_timing: id  2 | task 4264 | 
+prompt eval time =     423.04 ms /     1 tokens (  423.04 ms per token,     2.36 tokens per second)
+       eval time =    6527.07 ms /   223 tokens (   29.27 ms per token,    34.17 tokens per second)
+      total time =    6950.10 ms /   224 tokens
+slot      release: id  2 | task 4264 | stop processing: n_tokens = 720, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 1.000 (> 0.100 thold), f_keep = 0.692
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 4488 | processing task, is_child = 0
+slot update_slots: id  2 | task 4488 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 498
+slot update_slots: id  2 | task 4488 | need to evaluate at least 1 token for each active slot (n_past = 498, task.n_tokens() = 498)
+slot update_slots: id  2 | task 4488 | n_past was set to 497
+slot update_slots: id  2 | task 4488 | n_tokens = 497, memory_seq_rm [497, end)
+slot update_slots: id  2 | task 4488 | prompt processing progress, n_tokens = 498, batch.n_tokens = 1, progress = 1.000000
+slot update_slots: id  2 | task 4488 | prompt done, n_tokens = 498, batch.n_tokens = 1
+slot init_sampler: id  2 | task 4488 | init sampler, took 0.11 ms, tokens: text = 498, total = 498
+slot print_timing: id  2 | task 4488 | 
+prompt eval time =      29.05 ms /     1 tokens (   29.05 ms per token,    34.43 tokens per second)
+       eval time =    2139.30 ms /    73 tokens (   29.31 ms per token,    34.12 tokens per second)
+      total time =    2168.35 ms /    74 tokens
+slot      release: id  2 | task 4488 | stop processing: n_tokens = 570, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.991 (> 0.100 thold), f_keep = 0.673
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 4562 | processing task, is_child = 0
+slot update_slots: id  3 | task 4562 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 889
+slot update_slots: id  3 | task 4562 | n_past = 881, slot.prompt.tokens.size() = 1310, seq_id = 3, pos_min = 1006, n_swa = 128
+slot update_slots: id  3 | task 4562 | restored context checkpoint (pos_min = 382, pos_max = 1278, size = 21.034 MiB)
+slot update_slots: id  3 | task 4562 | n_tokens = 881, memory_seq_rm [881, end)
+slot update_slots: id  3 | task 4562 | prompt processing progress, n_tokens = 889, batch.n_tokens = 8, progress = 1.000000
+slot update_slots: id  3 | task 4562 | prompt done, n_tokens = 889, batch.n_tokens = 8
+slot init_sampler: id  3 | task 4562 | init sampler, took 0.19 ms, tokens: text = 889, total = 889
+slot print_timing: id  3 | task 4562 | 
+prompt eval time =     165.28 ms /     8 tokens (   20.66 ms per token,    48.40 tokens per second)
+       eval time =    2123.16 ms /    69 tokens (   30.77 ms per token,    32.50 tokens per second)
+      total time =    2288.44 ms /    77 tokens
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+slot      release: id  3 | task 4562 | stop processing: n_tokens = 957, truncated = 0
+srv  update_slots: all slots are idle
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.849 (> 0.100 thold), f_keep = 0.980
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 4632 | processing task, is_child = 0
+slot update_slots: id  3 | task 4632 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 1105
+slot update_slots: id  3 | task 4632 | n_tokens = 938, memory_seq_rm [938, end)
+slot update_slots: id  3 | task 4632 | prompt processing progress, n_tokens = 1041, batch.n_tokens = 103, progress = 0.942081
+slot update_slots: id  3 | task 4632 | n_tokens = 1041, memory_seq_rm [1041, end)
+slot update_slots: id  3 | task 4632 | prompt processing progress, n_tokens = 1105, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  3 | task 4632 | prompt done, n_tokens = 1105, batch.n_tokens = 64
+slot init_sampler: id  3 | task 4632 | init sampler, took 0.20 ms, tokens: text = 1105, total = 1105
+slot print_timing: id  3 | task 4632 | 
+prompt eval time =     415.74 ms /   167 tokens (    2.49 ms per token,   401.70 tokens per second)
+       eval time =    3542.07 ms /   118 tokens (   30.02 ms per token,    33.31 tokens per second)
+      total time =    3957.81 ms /   285 tokens
+slot      release: id  3 | task 4632 | stop processing: n_tokens = 1222, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.750 (> 0.100 thold), f_keep = 0.727
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 4752 | processing task, is_child = 0
+slot update_slots: id  3 | task 4752 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 1186
+slot update_slots: id  3 | task 4752 | n_tokens = 889, memory_seq_rm [889, end)
+slot update_slots: id  3 | task 4752 | prompt processing progress, n_tokens = 1122, batch.n_tokens = 233, progress = 0.946037
+slot update_slots: id  3 | task 4752 | n_tokens = 1122, memory_seq_rm [1122, end)
+slot update_slots: id  3 | task 4752 | prompt processing progress, n_tokens = 1186, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  3 | task 4752 | prompt done, n_tokens = 1186, batch.n_tokens = 64
+slot init_sampler: id  3 | task 4752 | init sampler, took 0.20 ms, tokens: text = 1186, total = 1186
+slot print_timing: id  3 | task 4752 | 
+prompt eval time =     677.06 ms /   297 tokens (    2.28 ms per token,   438.66 tokens per second)
+       eval time =    1470.78 ms /    48 tokens (   30.64 ms per token,    32.64 tokens per second)
+      total time =    2147.84 ms /   345 tokens
+slot      release: id  3 | task 4752 | stop processing: n_tokens = 1233, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 0.632 (> 0.100 thold), f_keep = 0.749
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 4802 | processing task, is_child = 0
+slot update_slots: id  2 | task 4802 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 676
+slot update_slots: id  2 | task 4802 | n_past = 427, slot.prompt.tokens.size() = 570, seq_id = 2, pos_min = 443, n_swa = 128
+slot update_slots: id  2 | task 4802 | restored context checkpoint (pos_min = 0, pos_max = 648, size = 15.219 MiB)
+slot update_slots: id  2 | task 4802 | n_tokens = 427, memory_seq_rm [427, end)
+slot update_slots: id  2 | task 4802 | prompt processing progress, n_tokens = 612, batch.n_tokens = 185, progress = 0.905325
+slot update_slots: id  2 | task 4802 | n_tokens = 612, memory_seq_rm [612, end)
+slot update_slots: id  2 | task 4802 | prompt processing progress, n_tokens = 676, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  2 | task 4802 | prompt done, n_tokens = 676, batch.n_tokens = 64
+slot init_sampler: id  2 | task 4802 | init sampler, took 0.12 ms, tokens: text = 676, total = 676
+slot print_timing: id  2 | task 4802 | 
+prompt eval time =    1244.91 ms /   249 tokens (    5.00 ms per token,   200.01 tokens per second)
+       eval time =    8188.26 ms /   264 tokens (   31.02 ms per token,    32.24 tokens per second)
+      total time =    9433.17 ms /   513 tokens
+slot      release: id  2 | task 4802 | stop processing: n_tokens = 939, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.730 (> 0.100 thold), f_keep = 0.713
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 5068 | processing task, is_child = 0
+slot update_slots: id  3 | task 5068 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 1204
+slot update_slots: id  3 | task 5068 | n_past = 879, slot.prompt.tokens.size() = 1233, seq_id = 3, pos_min = 1106, n_swa = 128
+slot update_slots: id  3 | task 5068 | restored context checkpoint (pos_min = 382, pos_max = 1278, size = 21.034 MiB)
+slot update_slots: id  3 | task 5068 | n_tokens = 879, memory_seq_rm [879, end)
+slot update_slots: id  3 | task 5068 | prompt processing progress, n_tokens = 1140, batch.n_tokens = 261, progress = 0.946844
+slot update_slots: id  3 | task 5068 | n_tokens = 1140, memory_seq_rm [1140, end)
+slot update_slots: id  3 | task 5068 | prompt processing progress, n_tokens = 1204, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  3 | task 5068 | prompt done, n_tokens = 1204, batch.n_tokens = 64
+slot init_sampler: id  3 | task 5068 | init sampler, took 0.19 ms, tokens: text = 1204, total = 1204
+slot print_timing: id  3 | task 5068 | 
+prompt eval time =     555.79 ms /   325 tokens (    1.71 ms per token,   584.76 tokens per second)
+       eval time =    4328.83 ms /   123 tokens (   35.19 ms per token,    28.41 tokens per second)
+      total time =    4884.61 ms /   448 tokens
+slot      release: id  3 | task 5068 | stop processing: n_tokens = 1326, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 0.744 (> 0.100 thold), f_keep = 0.453
+srv  get_availabl: updating prompt cache
+srv   prompt_save:  - saving prompt with length 939, total state size = 24.997 MiB
+srv          load:  - looking for better prompt, base f_keep = 0.453, sim = 0.744
+srv        update:  - cache state: 5 prompts, 217.188 MiB (limits: 8192.000 MiB, 56064 tokens, 173957 est)
+srv        update:    - prompt 0x55ea7c07a2a0:     885 tokens, checkpoints:  1,    38.950 MiB
+srv        update:    - prompt 0x55ea7d3b3450:     879 tokens, checkpoints:  1,    38.809 MiB
+srv        update:    - prompt 0x55ea7d3b32f0:     924 tokens, checkpoints:  1,    39.864 MiB
+srv        update:    - prompt 0x55ea7d83b270:     985 tokens, checkpoints:  1,    59.350 MiB
+srv        update:    - prompt 0x55ea7d83b310:     939 tokens, checkpoints:  1,    40.216 MiB
+srv  get_availabl: prompt cache update took 52.54 ms
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 5193 | processing task, is_child = 0
+slot update_slots: id  2 | task 5193 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 571
+slot update_slots: id  2 | task 5193 | n_past = 425, slot.prompt.tokens.size() = 939, seq_id = 2, pos_min = 812, n_swa = 128
+slot update_slots: id  2 | task 5193 | restored context checkpoint (pos_min = 0, pos_max = 648, size = 15.219 MiB)
+slot update_slots: id  2 | task 5193 | n_tokens = 425, memory_seq_rm [425, end)
+slot update_slots: id  2 | task 5193 | prompt processing progress, n_tokens = 507, batch.n_tokens = 82, progress = 0.887916
+slot update_slots: id  2 | task 5193 | n_tokens = 507, memory_seq_rm [507, end)
+slot update_slots: id  2 | task 5193 | prompt processing progress, n_tokens = 571, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  2 | task 5193 | prompt done, n_tokens = 571, batch.n_tokens = 64
+slot init_sampler: id  2 | task 5193 | init sampler, took 0.13 ms, tokens: text = 571, total = 571
+slot print_timing: id  2 | task 5193 | 
+prompt eval time =    1063.93 ms /   146 tokens (    7.29 ms per token,   137.23 tokens per second)
+       eval time =    6156.28 ms /   183 tokens (   33.64 ms per token,    29.73 tokens per second)
+      total time =    7220.21 ms /   329 tokens
+slot      release: id  2 | task 5193 | stop processing: n_tokens = 753, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 0.942 (> 0.100 thold), f_keep = 0.564
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 5378 | processing task, is_child = 0
+slot update_slots: id  2 | task 5378 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 451
+slot update_slots: id  2 | task 5378 | n_tokens = 425, memory_seq_rm [425, end)
+slot update_slots: id  2 | task 5378 | prompt processing progress, n_tokens = 451, batch.n_tokens = 26, progress = 1.000000
+slot update_slots: id  2 | task 5378 | prompt done, n_tokens = 451, batch.n_tokens = 26
+slot init_sampler: id  2 | task 5378 | init sampler, took 0.08 ms, tokens: text = 451, total = 451
+slot print_timing: id  2 | task 5378 | 
+prompt eval time =     235.93 ms /    26 tokens (    9.07 ms per token,   110.20 tokens per second)
+       eval time =    5279.38 ms /   173 tokens (   30.52 ms per token,    32.77 tokens per second)
+      total time =    5515.31 ms /   199 tokens
+slot      release: id  2 | task 5378 | stop processing: n_tokens = 623, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.738 (> 0.100 thold), f_keep = 0.663
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 5552 | processing task, is_child = 0
+slot update_slots: id  3 | task 5552 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 1191
+slot update_slots: id  3 | task 5552 | n_past = 879, slot.prompt.tokens.size() = 1326, seq_id = 3, pos_min = 1199, n_swa = 128
+slot update_slots: id  3 | task 5552 | restored context checkpoint (pos_min = 382, pos_max = 1278, size = 21.034 MiB)
+slot update_slots: id  3 | task 5552 | n_tokens = 879, memory_seq_rm [879, end)
+slot update_slots: id  3 | task 5552 | prompt processing progress, n_tokens = 1127, batch.n_tokens = 248, progress = 0.946264
+slot update_slots: id  3 | task 5552 | n_tokens = 1127, memory_seq_rm [1127, end)
+slot update_slots: id  3 | task 5552 | prompt processing progress, n_tokens = 1191, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  3 | task 5552 | prompt done, n_tokens = 1191, batch.n_tokens = 64
+slot init_sampler: id  3 | task 5552 | init sampler, took 0.27 ms, tokens: text = 1191, total = 1191
+slot print_timing: id  3 | task 5552 | 
+prompt eval time =    1354.73 ms /   312 tokens (    4.34 ms per token,   230.30 tokens per second)
+       eval time =    1539.95 ms /    49 tokens (   31.43 ms per token,    31.82 tokens per second)
+      total time =    2894.68 ms /   361 tokens
+slot      release: id  3 | task 5552 | stop processing: n_tokens = 1239, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 1.000 (> 0.100 thold), f_keep = 0.724
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 5603 | processing task, is_child = 0
+slot update_slots: id  2 | task 5603 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 451
+slot update_slots: id  2 | task 5603 | n_past = 451, slot.prompt.tokens.size() = 623, seq_id = 2, pos_min = 496, n_swa = 128
+slot update_slots: id  2 | task 5603 | restored context checkpoint (pos_min = 0, pos_max = 648, size = 15.219 MiB)
+slot update_slots: id  2 | task 5603 | need to evaluate at least 1 token for each active slot (n_past = 451, task.n_tokens() = 451)
+slot update_slots: id  2 | task 5603 | n_past was set to 450
+slot update_slots: id  2 | task 5603 | n_tokens = 450, memory_seq_rm [450, end)
+slot update_slots: id  2 | task 5603 | prompt processing progress, n_tokens = 451, batch.n_tokens = 1, progress = 1.000000
+slot update_slots: id  2 | task 5603 | prompt done, n_tokens = 451, batch.n_tokens = 1
+slot init_sampler: id  2 | task 5603 | init sampler, took 0.09 ms, tokens: text = 451, total = 451
+slot print_timing: id  2 | task 5603 | 
+prompt eval time =      37.84 ms /     1 tokens (   37.84 ms per token,    26.43 tokens per second)
+       eval time =    3627.73 ms /   115 tokens (   31.55 ms per token,    31.70 tokens per second)
+      total time =    3665.57 ms /   116 tokens
+slot      release: id  2 | task 5603 | stop processing: n_tokens = 565, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 1.000 (> 0.100 thold), f_keep = 0.798
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 5719 | processing task, is_child = 0
+slot update_slots: id  2 | task 5719 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 451
+slot update_slots: id  2 | task 5719 | need to evaluate at least 1 token for each active slot (n_past = 451, task.n_tokens() = 451)
+slot update_slots: id  2 | task 5719 | n_past was set to 450
+slot update_slots: id  2 | task 5719 | n_tokens = 450, memory_seq_rm [450, end)
+slot update_slots: id  2 | task 5719 | prompt processing progress, n_tokens = 451, batch.n_tokens = 1, progress = 1.000000
+slot update_slots: id  2 | task 5719 | prompt done, n_tokens = 451, batch.n_tokens = 1
+slot init_sampler: id  2 | task 5719 | init sampler, took 0.09 ms, tokens: text = 451, total = 451
+slot print_timing: id  2 | task 5719 | 
+prompt eval time =      22.91 ms /     1 tokens (   22.91 ms per token,    43.66 tokens per second)
+       eval time =    7637.28 ms /   254 tokens (   30.07 ms per token,    33.26 tokens per second)
+      total time =    7660.18 ms /   255 tokens
+slot      release: id  2 | task 5719 | stop processing: n_tokens = 704, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 0.652 (> 0.100 thold), f_keep = 0.607
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 5974 | processing task, is_child = 0
+slot update_slots: id  2 | task 5974 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 655
+slot update_slots: id  2 | task 5974 | n_tokens = 427, memory_seq_rm [427, end)
+slot update_slots: id  2 | task 5974 | prompt processing progress, n_tokens = 591, batch.n_tokens = 164, progress = 0.902290
+slot update_slots: id  2 | task 5974 | n_tokens = 591, memory_seq_rm [591, end)
+slot update_slots: id  2 | task 5974 | prompt processing progress, n_tokens = 655, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  2 | task 5974 | prompt done, n_tokens = 655, batch.n_tokens = 64
+slot init_sampler: id  2 | task 5974 | init sampler, took 0.16 ms, tokens: text = 655, total = 655
+slot print_timing: id  2 | task 5974 | 
+prompt eval time =     547.71 ms /   228 tokens (    2.40 ms per token,   416.28 tokens per second)
+       eval time =    7533.62 ms /   260 tokens (   28.98 ms per token,    34.51 tokens per second)
+      total time =    8081.32 ms /   488 tokens
+slot      release: id  2 | task 5974 | stop processing: n_tokens = 914, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.726 (> 0.100 thold), f_keep = 0.709
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 6236 | processing task, is_child = 0
+slot update_slots: id  3 | task 6236 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 1211
+slot update_slots: id  3 | task 6236 | n_past = 879, slot.prompt.tokens.size() = 1239, seq_id = 3, pos_min = 1112, n_swa = 128
+slot update_slots: id  3 | task 6236 | restored context checkpoint (pos_min = 382, pos_max = 1278, size = 21.034 MiB)
+slot update_slots: id  3 | task 6236 | n_tokens = 879, memory_seq_rm [879, end)
+slot update_slots: id  3 | task 6236 | prompt processing progress, n_tokens = 1147, batch.n_tokens = 268, progress = 0.947151
+slot update_slots: id  3 | task 6236 | n_tokens = 1147, memory_seq_rm [1147, end)
+slot update_slots: id  3 | task 6236 | prompt processing progress, n_tokens = 1211, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  3 | task 6236 | prompt done, n_tokens = 1211, batch.n_tokens = 64
+slot init_sampler: id  3 | task 6236 | init sampler, took 0.21 ms, tokens: text = 1211, total = 1211
+slot print_timing: id  3 | task 6236 | 
+prompt eval time =    1119.53 ms /   332 tokens (    3.37 ms per token,   296.55 tokens per second)
+       eval time =    3427.32 ms /   115 tokens (   29.80 ms per token,    33.55 tokens per second)
+      total time =    4546.85 ms /   447 tokens
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+slot      release: id  3 | task 6236 | stop processing: n_tokens = 1325, truncated = 0
+srv  update_slots: all slots are idle
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 0.738 (> 0.100 thold), f_keep = 0.465
+srv  get_availabl: updating prompt cache
+srv   prompt_save:  - saving prompt with length 914, total state size = 24.411 MiB
+srv          load:  - looking for better prompt, base f_keep = 0.465, sim = 0.738
+srv        update:  - cache state: 6 prompts, 256.818 MiB (limits: 8192.000 MiB, 56064 tokens, 176268 est)
+srv        update:    - prompt 0x55ea7c07a2a0:     885 tokens, checkpoints:  1,    38.950 MiB
+srv        update:    - prompt 0x55ea7d3b3450:     879 tokens, checkpoints:  1,    38.809 MiB
+srv        update:    - prompt 0x55ea7d3b32f0:     924 tokens, checkpoints:  1,    39.864 MiB
+srv        update:    - prompt 0x55ea7d83b270:     985 tokens, checkpoints:  1,    59.350 MiB
+srv        update:    - prompt 0x55ea7d83b310:     939 tokens, checkpoints:  1,    40.216 MiB
+srv        update:    - prompt 0x55ea80a78610:     914 tokens, checkpoints:  1,    39.630 MiB
+srv  get_availabl: prompt cache update took 58.08 ms
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 6353 | processing task, is_child = 0
+slot update_slots: id  2 | task 6353 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 576
+slot update_slots: id  2 | task 6353 | n_past = 425, slot.prompt.tokens.size() = 914, seq_id = 2, pos_min = 787, n_swa = 128
+slot update_slots: id  2 | task 6353 | restored context checkpoint (pos_min = 0, pos_max = 648, size = 15.219 MiB)
+slot update_slots: id  2 | task 6353 | n_tokens = 425, memory_seq_rm [425, end)
+slot update_slots: id  2 | task 6353 | prompt processing progress, n_tokens = 512, batch.n_tokens = 87, progress = 0.888889
+slot update_slots: id  2 | task 6353 | n_tokens = 512, memory_seq_rm [512, end)
+slot update_slots: id  2 | task 6353 | prompt processing progress, n_tokens = 576, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  2 | task 6353 | prompt done, n_tokens = 576, batch.n_tokens = 64
+slot init_sampler: id  2 | task 6353 | init sampler, took 0.14 ms, tokens: text = 576, total = 576
+slot print_timing: id  2 | task 6353 | 
+prompt eval time =     905.19 ms /   151 tokens (    5.99 ms per token,   166.82 tokens per second)
+       eval time =    6484.87 ms /   218 tokens (   29.75 ms per token,    33.62 tokens per second)
+      total time =    7390.06 ms /   369 tokens
+slot      release: id  2 | task 6353 | stop processing: n_tokens = 793, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.989 (> 0.100 thold), f_keep = 0.663
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 6573 | processing task, is_child = 0
+slot update_slots: id  3 | task 6573 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 889
+slot update_slots: id  3 | task 6573 | n_past = 879, slot.prompt.tokens.size() = 1325, seq_id = 3, pos_min = 1198, n_swa = 128
+slot update_slots: id  3 | task 6573 | restored context checkpoint (pos_min = 382, pos_max = 1278, size = 21.034 MiB)
+slot update_slots: id  3 | task 6573 | n_tokens = 879, memory_seq_rm [879, end)
+slot update_slots: id  3 | task 6573 | prompt processing progress, n_tokens = 889, batch.n_tokens = 10, progress = 1.000000
+slot update_slots: id  3 | task 6573 | prompt done, n_tokens = 889, batch.n_tokens = 10
+slot init_sampler: id  3 | task 6573 | init sampler, took 0.21 ms, tokens: text = 889, total = 889
+slot print_timing: id  3 | task 6573 | 
+prompt eval time =     958.81 ms /    10 tokens (   95.88 ms per token,    10.43 tokens per second)
+       eval time =    1380.93 ms /    47 tokens (   29.38 ms per token,    34.04 tokens per second)
+      total time =    2339.74 ms /    57 tokens
+slot      release: id  3 | task 6573 | stop processing: n_tokens = 935, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.848 (> 0.100 thold), f_keep = 0.981
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 6621 | processing task, is_child = 0
+slot update_slots: id  3 | task 6621 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 1082
+slot update_slots: id  3 | task 6621 | n_tokens = 917, memory_seq_rm [917, end)
+slot update_slots: id  3 | task 6621 | prompt processing progress, n_tokens = 1018, batch.n_tokens = 101, progress = 0.940850
+slot update_slots: id  3 | task 6621 | n_tokens = 1018, memory_seq_rm [1018, end)
+slot update_slots: id  3 | task 6621 | prompt processing progress, n_tokens = 1082, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  3 | task 6621 | prompt done, n_tokens = 1082, batch.n_tokens = 64
+slot init_sampler: id  3 | task 6621 | init sampler, took 0.26 ms, tokens: text = 1082, total = 1082
+slot print_timing: id  3 | task 6621 | 
+prompt eval time =     411.30 ms /   165 tokens (    2.49 ms per token,   401.17 tokens per second)
+       eval time =    3983.64 ms /   137 tokens (   29.08 ms per token,    34.39 tokens per second)
+      total time =    4394.94 ms /   302 tokens
+slot      release: id  3 | task 6621 | stop processing: n_tokens = 1218, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.739 (> 0.100 thold), f_keep = 0.730
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 6760 | processing task, is_child = 0
+slot update_slots: id  3 | task 6760 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 1203
+slot update_slots: id  3 | task 6760 | n_tokens = 889, memory_seq_rm [889, end)
+slot update_slots: id  3 | task 6760 | prompt processing progress, n_tokens = 1139, batch.n_tokens = 250, progress = 0.946800
+slot update_slots: id  3 | task 6760 | n_tokens = 1139, memory_seq_rm [1139, end)
+slot update_slots: id  3 | task 6760 | prompt processing progress, n_tokens = 1203, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  3 | task 6760 | prompt done, n_tokens = 1203, batch.n_tokens = 64
+slot init_sampler: id  3 | task 6760 | init sampler, took 0.20 ms, tokens: text = 1203, total = 1203
+slot print_timing: id  3 | task 6760 | 
+prompt eval time =     584.62 ms /   314 tokens (    1.86 ms per token,   537.11 tokens per second)
+       eval time =    1114.54 ms /    38 tokens (   29.33 ms per token,    34.09 tokens per second)
+      total time =    1699.16 ms /   352 tokens
+slot      release: id  3 | task 6760 | stop processing: n_tokens = 1240, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 0.651 (> 0.100 thold), f_keep = 0.536
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 6800 | processing task, is_child = 0
+slot update_slots: id  2 | task 6800 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 653
+slot update_slots: id  2 | task 6800 | n_past = 425, slot.prompt.tokens.size() = 793, seq_id = 2, pos_min = 666, n_swa = 128
+slot update_slots: id  2 | task 6800 | restored context checkpoint (pos_min = 0, pos_max = 648, size = 15.219 MiB)
+slot update_slots: id  2 | task 6800 | n_tokens = 425, memory_seq_rm [425, end)
+slot update_slots: id  2 | task 6800 | prompt processing progress, n_tokens = 589, batch.n_tokens = 164, progress = 0.901991
+slot update_slots: id  2 | task 6800 | n_tokens = 589, memory_seq_rm [589, end)
+slot update_slots: id  2 | task 6800 | prompt processing progress, n_tokens = 653, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  2 | task 6800 | prompt done, n_tokens = 653, batch.n_tokens = 64
+slot init_sampler: id  2 | task 6800 | init sampler, took 0.13 ms, tokens: text = 653, total = 653
+slot print_timing: id  2 | task 6800 | 
+prompt eval time =    1311.31 ms /   228 tokens (    5.75 ms per token,   173.87 tokens per second)
+       eval time =    7041.03 ms /   231 tokens (   30.48 ms per token,    32.81 tokens per second)
+      total time =    8352.34 ms /   459 tokens
+slot      release: id  2 | task 6800 | stop processing: n_tokens = 883, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.725 (> 0.100 thold), f_keep = 0.709
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 7033 | processing task, is_child = 0
+slot update_slots: id  3 | task 7033 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 1213
+slot update_slots: id  3 | task 7033 | n_past = 879, slot.prompt.tokens.size() = 1240, seq_id = 3, pos_min = 1113, n_swa = 128
+slot update_slots: id  3 | task 7033 | restored context checkpoint (pos_min = 382, pos_max = 1278, size = 21.034 MiB)
+slot update_slots: id  3 | task 7033 | n_tokens = 879, memory_seq_rm [879, end)
+slot update_slots: id  3 | task 7033 | prompt processing progress, n_tokens = 1149, batch.n_tokens = 270, progress = 0.947238
+slot update_slots: id  3 | task 7033 | n_tokens = 1149, memory_seq_rm [1149, end)
+slot update_slots: id  3 | task 7033 | prompt processing progress, n_tokens = 1213, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  3 | task 7033 | prompt done, n_tokens = 1213, batch.n_tokens = 64
+slot init_sampler: id  3 | task 7033 | init sampler, took 0.21 ms, tokens: text = 1213, total = 1213
+slot print_timing: id  3 | task 7033 | 
+prompt eval time =    1010.24 ms /   334 tokens (    3.02 ms per token,   330.62 tokens per second)
+       eval time =    4063.88 ms /   140 tokens (   29.03 ms per token,    34.45 tokens per second)
+      total time =    5074.12 ms /   474 tokens
+slot      release: id  3 | task 7033 | stop processing: n_tokens = 1352, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 0.720 (> 0.100 thold), f_keep = 0.481
+srv  get_availabl: updating prompt cache
+srv   prompt_save:  - saving prompt with length 883, total state size = 23.684 MiB
+srv          load:  - looking for better prompt, base f_keep = 0.481, sim = 0.720
+srv        update:  - cache state: 7 prompts, 295.721 MiB (limits: 8192.000 MiB, 56064 tokens, 177540 est)
+srv        update:    - prompt 0x55ea7c07a2a0:     885 tokens, checkpoints:  1,    38.950 MiB
+srv        update:    - prompt 0x55ea7d3b3450:     879 tokens, checkpoints:  1,    38.809 MiB
+srv        update:    - prompt 0x55ea7d3b32f0:     924 tokens, checkpoints:  1,    39.864 MiB
+srv        update:    - prompt 0x55ea7d83b270:     985 tokens, checkpoints:  1,    59.350 MiB
+srv        update:    - prompt 0x55ea7d83b310:     939 tokens, checkpoints:  1,    40.216 MiB
+srv        update:    - prompt 0x55ea80a78610:     914 tokens, checkpoints:  1,    39.630 MiB
+srv        update:    - prompt 0x55ea7ca4fcc0:     883 tokens, checkpoints:  1,    38.903 MiB
+srv  get_availabl: prompt cache update took 45.14 ms
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 7175 | processing task, is_child = 0
+slot update_slots: id  2 | task 7175 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 590
+slot update_slots: id  2 | task 7175 | n_past = 425, slot.prompt.tokens.size() = 883, seq_id = 2, pos_min = 756, n_swa = 128
+slot update_slots: id  2 | task 7175 | restored context checkpoint (pos_min = 0, pos_max = 648, size = 15.219 MiB)
+slot update_slots: id  2 | task 7175 | n_tokens = 425, memory_seq_rm [425, end)
+slot update_slots: id  2 | task 7175 | prompt processing progress, n_tokens = 526, batch.n_tokens = 101, progress = 0.891525
+slot update_slots: id  2 | task 7175 | n_tokens = 526, memory_seq_rm [526, end)
+slot update_slots: id  2 | task 7175 | prompt processing progress, n_tokens = 590, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  2 | task 7175 | prompt done, n_tokens = 590, batch.n_tokens = 64
+slot init_sampler: id  2 | task 7175 | init sampler, took 0.14 ms, tokens: text = 590, total = 590
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.764 (> 0.100 thold), f_keep = 0.761
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 7292 | processing task, is_child = 0
+slot update_slots: id  3 | task 7292 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 1346
+slot update_slots: id  3 | task 7292 | n_past = 1029, slot.prompt.tokens.size() = 1352, seq_id = 3, pos_min = 1032, n_swa = 128
+slot update_slots: id  3 | task 7292 | restored context checkpoint (pos_min = 382, pos_max = 1278, size = 21.034 MiB)
+slot update_slots: id  3 | task 7292 | n_tokens = 1029, memory_seq_rm [1029, end)
+slot update_slots: id  3 | task 7292 | prompt processing progress, n_tokens = 1282, batch.n_tokens = 254, progress = 0.952452
+slot update_slots: id  3 | task 7292 | n_tokens = 1282, memory_seq_rm [1282, end)
+slot update_slots: id  3 | task 7292 | prompt processing progress, n_tokens = 1346, batch.n_tokens = 65, progress = 1.000000
+slot update_slots: id  3 | task 7292 | prompt done, n_tokens = 1346, batch.n_tokens = 65
+slot init_sampler: id  3 | task 7292 | init sampler, took 0.23 ms, tokens: text = 1346, total = 1346
+slot print_timing: id  3 | task 7292 | 
+prompt eval time =    1150.96 ms /   317 tokens (    3.63 ms per token,   275.42 tokens per second)
+       eval time =    2579.61 ms /    51 tokens (   50.58 ms per token,    19.77 tokens per second)
+      total time =    3730.56 ms /   368 tokens
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+slot      release: id  3 | task 7292 | stop processing: n_tokens = 1396, truncated = 0
+slot print_timing: id  2 | task 7175 | 
+prompt eval time =     491.25 ms /   165 tokens (    2.98 ms per token,   335.88 tokens per second)
+       eval time =    8170.36 ms /   216 tokens (   37.83 ms per token,    26.44 tokens per second)
+      total time =    8661.60 ms /   381 tokens
+slot      release: id  2 | task 7175 | stop processing: n_tokens = 805, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 1.000 (> 0.100 thold), f_keep = 0.733
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 7394 | processing task, is_child = 0
+slot update_slots: id  2 | task 7394 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 590
+slot update_slots: id  2 | task 7394 | n_past = 590, slot.prompt.tokens.size() = 805, seq_id = 2, pos_min = 595, n_swa = 128
+slot update_slots: id  2 | task 7394 | restored context checkpoint (pos_min = 0, pos_max = 648, size = 15.219 MiB)
+slot update_slots: id  2 | task 7394 | need to evaluate at least 1 token for each active slot (n_past = 590, task.n_tokens() = 590)
+slot update_slots: id  2 | task 7394 | n_past was set to 589
+slot update_slots: id  2 | task 7394 | n_tokens = 589, memory_seq_rm [589, end)
+slot update_slots: id  2 | task 7394 | prompt processing progress, n_tokens = 590, batch.n_tokens = 1, progress = 1.000000
+slot update_slots: id  2 | task 7394 | prompt done, n_tokens = 590, batch.n_tokens = 1
+slot init_sampler: id  2 | task 7394 | init sampler, took 0.10 ms, tokens: text = 590, total = 590
+slot print_timing: id  2 | task 7394 | 
+prompt eval time =     440.81 ms /     1 tokens (  440.81 ms per token,     2.27 tokens per second)
+       eval time =    6872.11 ms /   259 tokens (   26.53 ms per token,    37.69 tokens per second)
+      total time =    7312.92 ms /   260 tokens
+slot      release: id  2 | task 7394 | stop processing: n_tokens = 848, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 0.722 (> 0.100 thold), f_keep = 0.667
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 7654 | processing task, is_child = 0
+slot update_slots: id  2 | task 7654 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 784
+slot update_slots: id  2 | task 7654 | n_tokens = 566, memory_seq_rm [566, end)
+slot update_slots: id  2 | task 7654 | prompt processing progress, n_tokens = 720, batch.n_tokens = 154, progress = 0.918367
+slot update_slots: id  2 | task 7654 | n_tokens = 720, memory_seq_rm [720, end)
+slot update_slots: id  2 | task 7654 | prompt processing progress, n_tokens = 784, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  2 | task 7654 | prompt done, n_tokens = 784, batch.n_tokens = 64
+slot init_sampler: id  2 | task 7654 | init sampler, took 0.16 ms, tokens: text = 784, total = 784
+slot update_slots: id  2 | task 7654 | created context checkpoint 2 of 8 (pos_min = 13, pos_max = 719, size = 16.579 MiB)
+slot print_timing: id  2 | task 7654 | 
+prompt eval time =     535.35 ms /   218 tokens (    2.46 ms per token,   407.21 tokens per second)
+       eval time =    6578.71 ms /   238 tokens (   27.64 ms per token,    36.18 tokens per second)
+      total time =    7114.06 ms /   456 tokens
+slot      release: id  2 | task 7654 | stop processing: n_tokens = 1021, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.721 (> 0.100 thold), f_keep = 0.635
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 7894 | processing task, is_child = 0
+slot update_slots: id  3 | task 7894 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 1229
+slot update_slots: id  3 | task 7894 | n_past = 886, slot.prompt.tokens.size() = 1396, seq_id = 3, pos_min = 1269, n_swa = 128
+slot update_slots: id  3 | task 7894 | restored context checkpoint (pos_min = 382, pos_max = 1278, size = 21.034 MiB)
+slot update_slots: id  3 | task 7894 | n_tokens = 886, memory_seq_rm [886, end)
+slot update_slots: id  3 | task 7894 | prompt processing progress, n_tokens = 1165, batch.n_tokens = 279, progress = 0.947925
+slot update_slots: id  3 | task 7894 | n_tokens = 1165, memory_seq_rm [1165, end)
+slot update_slots: id  3 | task 7894 | prompt processing progress, n_tokens = 1229, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  3 | task 7894 | prompt done, n_tokens = 1229, batch.n_tokens = 64
+slot init_sampler: id  3 | task 7894 | init sampler, took 0.20 ms, tokens: text = 1229, total = 1229
+slot print_timing: id  3 | task 7894 | 
+prompt eval time =    1133.95 ms /   343 tokens (    3.31 ms per token,   302.48 tokens per second)
+       eval time =    4016.21 ms /   144 tokens (   27.89 ms per token,    35.85 tokens per second)
+      total time =    5150.16 ms /   487 tokens
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+slot      release: id  3 | task 7894 | stop processing: n_tokens = 1372, truncated = 0
+srv  update_slots: all slots are idle
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, sim_best = 0.728 (> 0.100 thold), f_keep = 0.423
+srv  get_availabl: updating prompt cache
+srv   prompt_save:  - saving prompt with length 1021, total state size = 26.920 MiB
+srv          load:  - looking for better prompt, base f_keep = 0.423, sim = 0.728
+srv        update:  - cache state: 8 prompts, 354.438 MiB (limits: 8192.000 MiB, 56064 tokens, 171726 est)
+srv        update:    - prompt 0x55ea7c07a2a0:     885 tokens, checkpoints:  1,    38.950 MiB
+srv        update:    - prompt 0x55ea7d3b3450:     879 tokens, checkpoints:  1,    38.809 MiB
+srv        update:    - prompt 0x55ea7d3b32f0:     924 tokens, checkpoints:  1,    39.864 MiB
+srv        update:    - prompt 0x55ea7d83b270:     985 tokens, checkpoints:  1,    59.350 MiB
+srv        update:    - prompt 0x55ea7d83b310:     939 tokens, checkpoints:  1,    40.216 MiB
+srv        update:    - prompt 0x55ea80a78610:     914 tokens, checkpoints:  1,    39.630 MiB
+srv        update:    - prompt 0x55ea7ca4fcc0:     883 tokens, checkpoints:  1,    38.903 MiB
+srv        update:    - prompt 0x55ea7d60bad0:    1021 tokens, checkpoints:  2,    58.717 MiB
+srv  get_availabl: prompt cache update took 128.09 ms
+slot launch_slot_: id  2 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  2 | task 8040 | processing task, is_child = 0
+slot update_slots: id  2 | task 8040 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 593
+slot update_slots: id  2 | task 8040 | n_past = 432, slot.prompt.tokens.size() = 1021, seq_id = 2, pos_min = 894, n_swa = 128
+slot update_slots: id  2 | task 8040 | restored context checkpoint (pos_min = 13, pos_max = 719, size = 16.579 MiB)
+slot update_slots: id  2 | task 8040 | n_tokens = 432, memory_seq_rm [432, end)
+slot update_slots: id  2 | task 8040 | prompt processing progress, n_tokens = 529, batch.n_tokens = 97, progress = 0.892074
+slot update_slots: id  2 | task 8040 | n_tokens = 529, memory_seq_rm [529, end)
+slot update_slots: id  2 | task 8040 | prompt processing progress, n_tokens = 593, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  2 | task 8040 | prompt done, n_tokens = 593, batch.n_tokens = 64
+slot init_sampler: id  2 | task 8040 | init sampler, took 0.13 ms, tokens: text = 593, total = 593
+slot print_timing: id  2 | task 8040 | 
+prompt eval time =     446.46 ms /   161 tokens (    2.77 ms per token,   360.61 tokens per second)
+       eval time =    2949.88 ms /   110 tokens (   26.82 ms per token,    37.29 tokens per second)
+      total time =    3396.34 ms /   271 tokens
+slot      release: id  2 | task 8040 | stop processing: n_tokens = 702, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
