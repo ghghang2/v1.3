@@ -1973,3 +1973,22 @@ srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
 srv          stop: cancel task, id_task = 12133
 slot      release: id  3 | task 12133 | stop processing: n_tokens = 1475, truncated = 0
 srv  update_slots: all slots are idle
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.985 (> 0.100 thold), f_keep = 0.597
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 12139 | processing task, is_child = 0
+slot update_slots: id  3 | task 12139 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 894
+slot update_slots: id  3 | task 12139 | n_past = 881, slot.prompt.tokens.size() = 1475, seq_id = 3, pos_min = 1121, n_swa = 128
+slot update_slots: id  3 | task 12139 | restored context checkpoint (pos_min = 382, pos_max = 1278, size = 21.034 MiB)
+slot update_slots: id  3 | task 12139 | erased invalidated context checkpoint (pos_min = 1121, pos_max = 1408, n_swa = 128, size = 6.754 MiB)
+slot update_slots: id  3 | task 12139 | n_tokens = 881, memory_seq_rm [881, end)
+slot update_slots: id  3 | task 12139 | prompt processing progress, n_tokens = 894, batch.n_tokens = 13, progress = 1.000000
+slot update_slots: id  3 | task 12139 | prompt done, n_tokens = 894, batch.n_tokens = 13
+slot init_sampler: id  3 | task 12139 | init sampler, took 0.15 ms, tokens: text = 894, total = 894
+slot print_timing: id  3 | task 12139 | 
+prompt eval time =     969.17 ms /    13 tokens (   74.55 ms per token,    13.41 tokens per second)
+       eval time =    2914.28 ms /    79 tokens (   36.89 ms per token,    27.11 tokens per second)
+      total time =    3883.45 ms /    92 tokens
+slot      release: id  3 | task 12139 | stop processing: n_tokens = 972, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
