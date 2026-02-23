@@ -11,22 +11,16 @@ def md_to_html(text: str) -> str:
 
 def changed_files():
     # 1. Get list of files changed since the last push
-    try:
-        diff = subprocess.check_output(
-            ["git", "diff", "--name-only", "HEAD"],
-            text=True
-        ).splitlines()
-    except Exception:
-        diff = []
+    diff = subprocess.check_output(
+        ["git", "diff", "--name-only", "HEAD"],
+        text=True
+    ).splitlines()
 
     # Staged changes (optional)
-    try:
-        staged = subprocess.check_output(
-            ["git", "diff", "--name-only", "--cached"], 
-            text=True
-        ).splitlines()
-    except Exception:
-        staged = []
+    staged = subprocess.check_output(
+        ["git", "diff", "--name-only", "--cached"], 
+        text=True
+    ).splitlines()
 
     all_changes = set(diff + staged)
 
