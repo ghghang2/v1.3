@@ -59,23 +59,24 @@ class CompactionEngine:
         """Check if history exceeds token threshold."""
         return self.total_tokens(history) >= self.threshold
     
-    def compact_history(self, history: List[Tuple[str, str, str, str, str]]) -> List[Tuple[str, str, str, str, str]]:
-        """
-        Summarise older messages, keep recent tail.
-        
-        Returns new history or raises exception on failure.
-        """
+    def compact_history(self, history):
         if len(history) <= self.tail_messages:
-            return history  # Not enough to compact
-            
-        older = history[:-self.tail_messages]
-        tail = history[-self.tail_messages:]
-        
-        # Build messages for summarisation with original system prompt
+            return history
+
+        tail_start = len(history) - self.tail_messages
+        # Walk back until we land on a clean turn boundary
+        while tail_start > 0 and history[tail_start][0] in ("tool", "analysis", "assistant_full"):
+            tail_start -= 1
+
+        if tail_start == 0:
+            return history  # can't compact without losing everything
+
+        older = history[:tail_start]
+        tail = history[tail_start:]
+
         messages = build_messages(older, self.system_prompt)
         messages.append({"role": "user", "content": self.summary_prompt})
-        
-        # Request summary - must succeed or raise
+
         try:
             client = get_client()
             response = client.chat.completions.create(
@@ -85,15 +86,11 @@ class CompactionEngine:
             )
         except Exception as e:
             raise RuntimeError(f"Summarization failed: {e}")
-        
-        # Clear cache since history structure changes
+
         with self._cache_lock:
             self._cache.clear()
-        
+
         summary_text = response.choices[0].message.content
-        
-        # New history: summary (as system message) + tail
-        # Use role "system" for API compatibility
         return [("compacted", summary_text, "", "", "")] + tail
 
 

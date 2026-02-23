@@ -2966,3 +2966,149 @@ srv    operator(): got exception: {"error":{"code":500,"message":"\n------------
 srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 500
 srv    operator(): got exception: {"error":{"code":500,"message":"\n------------\nWhile executing CallExpression at line 328, column 32 in source:\n... none %}↵            {{- raise_exception(\"Message has tool role, but there was n...\n                                           ^\nError: Jinja Exception: Message has tool role, but there was no previous assistant message with a tool call!","type":"server_error"}}
 srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 500
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.988 (> 0.100 thold), f_keep = 0.710
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 17860 | processing task, is_child = 0
+slot update_slots: id  3 | task 17860 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 890
+slot update_slots: id  3 | task 17860 | n_past = 879, slot.prompt.tokens.size() = 1238, seq_id = 3, pos_min = 1111, n_swa = 128
+state_read_meta: failed to find available cells in kv cache
+state_seq_set_data: error loading state: failed to restore kv cache
+slot update_slots: id  3 | task 17860 | failed to restore context checkpoint (pos_min = 670, pos_max = 1550, size = 20.659 MiB)
+slot update_slots: id  3 | task 17860 | forcing full prompt re-processing due to lack of cache data (likely due to SWA or hybrid/recurrent memory, see https://github.com/ggml-org/llama.cpp/pull/13194#issuecomment-2868343055)
+slot update_slots: id  3 | task 17860 | n_tokens = 0, memory_seq_rm [0, end)
+slot update_slots: id  3 | task 17860 | prompt processing progress, n_tokens = 826, batch.n_tokens = 826, progress = 0.928090
+slot update_slots: id  3 | task 17860 | n_tokens = 826, memory_seq_rm [826, end)
+slot update_slots: id  3 | task 17860 | prompt processing progress, n_tokens = 890, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  3 | task 17860 | prompt done, n_tokens = 890, batch.n_tokens = 64
+slot init_sampler: id  3 | task 17860 | init sampler, took 0.14 ms, tokens: text = 890, total = 890
+slot print_timing: id  3 | task 17860 | 
+prompt eval time =    1154.81 ms /   890 tokens (    1.30 ms per token,   770.69 tokens per second)
+       eval time =    1066.02 ms /    44 tokens (   24.23 ms per token,    41.28 tokens per second)
+      total time =    2220.82 ms /   934 tokens
+slot      release: id  3 | task 17860 | stop processing: n_tokens = 933, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.746 (> 0.100 thold), f_keep = 0.981
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 17906 | processing task, is_child = 0
+slot update_slots: id  3 | task 17906 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 1226
+slot update_slots: id  3 | task 17906 | n_tokens = 915, memory_seq_rm [915, end)
+slot update_slots: id  3 | task 17906 | prompt processing progress, n_tokens = 1162, batch.n_tokens = 247, progress = 0.947798
+slot update_slots: id  3 | task 17906 | n_tokens = 1162, memory_seq_rm [1162, end)
+slot update_slots: id  3 | task 17906 | prompt processing progress, n_tokens = 1226, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  3 | task 17906 | prompt done, n_tokens = 1226, batch.n_tokens = 64
+slot init_sampler: id  3 | task 17906 | init sampler, took 0.19 ms, tokens: text = 1226, total = 1226
+slot print_timing: id  3 | task 17906 | 
+prompt eval time =     537.42 ms /   311 tokens (    1.73 ms per token,   578.69 tokens per second)
+       eval time =    3354.36 ms /   137 tokens (   24.48 ms per token,    40.84 tokens per second)
+      total time =    3891.78 ms /   448 tokens
+slot      release: id  3 | task 17906 | stop processing: n_tokens = 1362, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.857 (> 0.100 thold), f_keep = 0.623
+slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  0 | task 18045 | processing task, is_child = 0
+slot update_slots: id  0 | task 18045 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 498
+slot update_slots: id  0 | task 18045 | n_past = 427, slot.prompt.tokens.size() = 685, seq_id = 0, pos_min = 558, n_swa = 128
+slot update_slots: id  0 | task 18045 | restored context checkpoint (pos_min = 0, pos_max = 433, size = 10.177 MiB)
+slot update_slots: id  0 | task 18045 | n_tokens = 427, memory_seq_rm [427, end)
+slot update_slots: id  0 | task 18045 | prompt processing progress, n_tokens = 434, batch.n_tokens = 7, progress = 0.871486
+slot update_slots: id  0 | task 18045 | n_tokens = 434, memory_seq_rm [434, end)
+slot update_slots: id  0 | task 18045 | prompt processing progress, n_tokens = 498, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  0 | task 18045 | prompt done, n_tokens = 498, batch.n_tokens = 64
+slot init_sampler: id  0 | task 18045 | init sampler, took 0.12 ms, tokens: text = 498, total = 498
+slot print_timing: id  0 | task 18045 | 
+prompt eval time =     396.53 ms /    71 tokens (    5.58 ms per token,   179.05 tokens per second)
+       eval time =    6023.66 ms /   245 tokens (   24.59 ms per token,    40.67 tokens per second)
+      total time =    6420.19 ms /   316 tokens
+slot      release: id  0 | task 18045 | stop processing: n_tokens = 742, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, sim_best = 0.737 (> 0.100 thold), f_keep = 0.645
+slot launch_slot_: id  3 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  3 | task 18292 | processing task, is_child = 0
+slot update_slots: id  3 | task 18292 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 1193
+slot update_slots: id  3 | task 18292 | n_past = 879, slot.prompt.tokens.size() = 1362, seq_id = 3, pos_min = 1235, n_swa = 128
+state_read_meta: failed to find available cells in kv cache
+state_seq_set_data: error loading state: failed to restore kv cache
+slot update_slots: id  3 | task 18292 | failed to restore context checkpoint (pos_min = 670, pos_max = 1550, size = 20.659 MiB)
+slot update_slots: id  3 | task 18292 | forcing full prompt re-processing due to lack of cache data (likely due to SWA or hybrid/recurrent memory, see https://github.com/ggml-org/llama.cpp/pull/13194#issuecomment-2868343055)
+slot update_slots: id  3 | task 18292 | n_tokens = 0, memory_seq_rm [0, end)
+slot update_slots: id  3 | task 18292 | prompt processing progress, n_tokens = 1129, batch.n_tokens = 1129, progress = 0.946354
+slot update_slots: id  3 | task 18292 | n_tokens = 1129, memory_seq_rm [1129, end)
+slot update_slots: id  3 | task 18292 | prompt processing progress, n_tokens = 1193, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  3 | task 18292 | prompt done, n_tokens = 1193, batch.n_tokens = 64
+slot init_sampler: id  3 | task 18292 | init sampler, took 0.17 ms, tokens: text = 1193, total = 1193
+slot print_timing: id  3 | task 18292 | 
+prompt eval time =    1560.65 ms /  1193 tokens (    1.31 ms per token,   764.42 tokens per second)
+       eval time =     874.45 ms /    36 tokens (   24.29 ms per token,    41.17 tokens per second)
+      total time =    2435.10 ms /  1229 tokens
+slot      release: id  3 | task 18292 | stop processing: n_tokens = 1228, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.875 (> 0.100 thold), f_keep = 0.575
+slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  0 | task 18330 | processing task, is_child = 0
+slot update_slots: id  0 | task 18330 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 488
+slot update_slots: id  0 | task 18330 | n_past = 427, slot.prompt.tokens.size() = 742, seq_id = 0, pos_min = 615, n_swa = 128
+slot update_slots: id  0 | task 18330 | restored context checkpoint (pos_min = 0, pos_max = 433, size = 10.177 MiB)
+slot update_slots: id  0 | task 18330 | n_tokens = 427, memory_seq_rm [427, end)
+slot update_slots: id  0 | task 18330 | prompt processing progress, n_tokens = 488, batch.n_tokens = 61, progress = 1.000000
+slot update_slots: id  0 | task 18330 | prompt done, n_tokens = 488, batch.n_tokens = 61
+slot init_sampler: id  0 | task 18330 | init sampler, took 0.08 ms, tokens: text = 488, total = 488
+slot print_timing: id  0 | task 18330 | 
+prompt eval time =     248.28 ms /    61 tokens (    4.07 ms per token,   245.69 tokens per second)
+       eval time =    4200.90 ms /   167 tokens (   25.16 ms per token,    39.75 tokens per second)
+      total time =    4449.18 ms /   228 tokens
+slot      release: id  0 | task 18330 | stop processing: n_tokens = 654, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: GPT-OSS
+slot get_availabl: id  1 | task -1 | selected slot by LCP similarity, sim_best = 0.808 (> 0.100 thold), f_keep = 0.569
+slot launch_slot_: id  1 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  1 | task 18498 | processing task, is_child = 0
+slot update_slots: id  1 | task 18498 | new prompt, n_ctx_slot = 56064, n_keep = 0, task.n_tokens = 532
+slot update_slots: id  1 | task 18498 | n_past = 430, slot.prompt.tokens.size() = 756, seq_id = 1, pos_min = 629, n_swa = 128
+slot update_slots: id  1 | task 18498 | restored context checkpoint (pos_min = 0, pos_max = 463, size = 10.881 MiB)
+slot update_slots: id  1 | task 18498 | n_tokens = 430, memory_seq_rm [430, end)
+slot update_slots: id  1 | task 18498 | prompt processing progress, n_tokens = 468, batch.n_tokens = 38, progress = 0.879699
+slot update_slots: id  1 | task 18498 | n_tokens = 468, memory_seq_rm [468, end)
+slot update_slots: id  1 | task 18498 | prompt processing progress, n_tokens = 532, batch.n_tokens = 64, progress = 1.000000
+slot update_slots: id  1 | task 18498 | prompt done, n_tokens = 532, batch.n_tokens = 64
+slot init_sampler: id  1 | task 18498 | init sampler, took 0.09 ms, tokens: text = 532, total = 532
+slot print_timing: id  1 | task 18498 | 
+prompt eval time =     405.48 ms /   102 tokens (    3.98 ms per token,   251.55 tokens per second)
+       eval time =    3956.08 ms /   157 tokens (   25.20 ms per token,    39.69 tokens per second)
+      total time =    4361.56 ms /   259 tokens
+slot      release: id  1 | task 18498 | stop processing: n_tokens = 688, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 200
+srv    operator(): got exception: {"error":{"code":500,"message":"\n------------\nWhile executing CallExpression at line 328, column 32 in source:\n... none %}↵            {{- raise_exception(\"Message has tool role, but there was n...\n                                           ^\nError: Jinja Exception: Message has tool role, but there was no previous assistant message with a tool call!","type":"server_error"}}
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 500
+srv    operator(): got exception: {"error":{"code":500,"message":"\n------------\nWhile executing CallExpression at line 328, column 32 in source:\n... none %}↵            {{- raise_exception(\"Message has tool role, but there was n...\n                                           ^\nError: Jinja Exception: Message has tool role, but there was no previous assistant message with a tool call!","type":"server_error"}}
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 500
+srv    operator(): got exception: {"error":{"code":500,"message":"\n------------\nWhile executing CallExpression at line 328, column 32 in source:\n... none %}↵            {{- raise_exception(\"Message has tool role, but there was n...\n                                           ^\nError: Jinja Exception: Message has tool role, but there was no previous assistant message with a tool call!","type":"server_error"}}
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 500
+srv    operator(): got exception: {"error":{"code":500,"message":"\n------------\nWhile executing CallExpression at line 328, column 32 in source:\n... none %}↵            {{- raise_exception(\"Message has tool role, but there was n...\n                                           ^\nError: Jinja Exception: Message has tool role, but there was no previous assistant message with a tool call!","type":"server_error"}}
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 500
+srv    operator(): got exception: {"error":{"code":500,"message":"\n------------\nWhile executing CallExpression at line 328, column 32 in source:\n... none %}↵            {{- raise_exception(\"Message has tool role, but there was n...\n                                           ^\nError: Jinja Exception: Message has tool role, but there was no previous assistant message with a tool call!","type":"server_error"}}
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 500
+srv    operator(): got exception: {"error":{"code":500,"message":"\n------------\nWhile executing CallExpression at line 328, column 32 in source:\n... none %}↵            {{- raise_exception(\"Message has tool role, but there was n...\n                                           ^\nError: Jinja Exception: Message has tool role, but there was no previous assistant message with a tool call!","type":"server_error"}}
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 500
+srv    operator(): got exception: {"error":{"code":500,"message":"\n------------\nWhile executing CallExpression at line 328, column 32 in source:\n... none %}↵            {{- raise_exception(\"Message has tool role, but there was n...\n                                           ^\nError: Jinja Exception: Message has tool role, but there was no previous assistant message with a tool call!","type":"server_error"}}
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 500
+srv    operator(): got exception: {"error":{"code":500,"message":"\n------------\nWhile executing CallExpression at line 328, column 32 in source:\n... none %}↵            {{- raise_exception(\"Message has tool role, but there was n...\n                                           ^\nError: Jinja Exception: Message has tool role, but there was no previous assistant message with a tool call!","type":"server_error"}}
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 500
+srv    operator(): got exception: {"error":{"code":500,"message":"\n------------\nWhile executing CallExpression at line 328, column 32 in source:\n... none %}↵            {{- raise_exception(\"Message has tool role, but there was n...\n                                           ^\nError: Jinja Exception: Message has tool role, but there was no previous assistant message with a tool call!","type":"server_error"}}
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 500
+srv    operator(): got exception: {"error":{"code":500,"message":"\n------------\nWhile executing CallExpression at line 328, column 32 in source:\n... none %}↵            {{- raise_exception(\"Message has tool role, but there was n...\n                                           ^\nError: Jinja Exception: Message has tool role, but there was no previous assistant message with a tool call!","type":"server_error"}}
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 500
+srv    operator(): got exception: {"error":{"code":500,"message":"\n------------\nWhile executing CallExpression at line 328, column 32 in source:\n... none %}↵            {{- raise_exception(\"Message has tool role, but there was n...\n                                           ^\nError: Jinja Exception: Message has tool role, but there was no previous assistant message with a tool call!","type":"server_error"}}
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 500
+srv    operator(): got exception: {"error":{"code":500,"message":"\n------------\nWhile executing CallExpression at line 328, column 32 in source:\n... none %}↵            {{- raise_exception(\"Message has tool role, but there was n...\n                                           ^\nError: Jinja Exception: Message has tool role, but there was no previous assistant message with a tool call!","type":"server_error"}}
+srv  log_server_r: request: POST /v1/chat/completions 127.0.0.1 500

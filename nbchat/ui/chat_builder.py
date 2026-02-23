@@ -57,6 +57,8 @@ def build_messages(history: List[Tuple[str, str, str, str, str]], system_prompt:
                 "tool_call_id": tool_id,
                 "content": content,
             })
+        elif role == "compacted":
+            messages.append({"role": "system", "content": content})
     return messages
 
 __all__ = ["build_messages"]
