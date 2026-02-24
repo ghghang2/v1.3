@@ -80,8 +80,8 @@ def user_message_html(content: str, prefix: str = "<b>User</b> ") -> str:
 def assistant_message_html(content: str, prefix: str = "<b>Assistant</b> ") -> str:
     return _div(prefix + _md(content, inline=True), BACKGROUND_ASSISTANT)
 
-def assistant_placeholder_html() -> str:
-    return _div("<b>Assistant:</b> ", BACKGROUND_ASSISTANT)
+# def assistant_placeholder_html() -> str:
+#     return _div("<b>Assistant:</b> ", BACKGROUND_ASSISTANT)
 
 def reasoning_html(content: str, summary: str = "<b>Reasoning</b>", open: bool = False) -> str:
     tag = "open" if open else ""
@@ -92,13 +92,13 @@ def reasoning_html(content: str, summary: str = "<b>Reasoning</b>", open: bool =
     )
     return _div(inner, BACKGROUND_LIGHT)
 
-def reasoning_placeholder_html() -> str:
-    inner = (
-        '<details style="margin:0;padding:0;">'
-        '<summary style="margin:0;display:block;"><b>Reasoning</b></summary>'
-        '</details>'
-    )
-    return _div(inner, BACKGROUND_LIGHT)
+# def reasoning_placeholder_html() -> str:
+#     inner = (
+#         '<details style="margin:0;padding:0;">'
+#         '<summary style="margin:0;display:block;"><b>Reasoning</b></summary>'
+#         '</details>'
+#     )
+#     return _div(inner, BACKGROUND_LIGHT)
 
 def assistant_full_html(reasoning: str, content: str, tool_calls: List[Dict[str, Any]]) -> str:
     parts = []

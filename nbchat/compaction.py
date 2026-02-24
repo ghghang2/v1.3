@@ -104,31 +104,20 @@ class CompactionEngine:
 
         tail_start = len(history) - self.tail_messages
 
-        # Walk backwards past incomplete turns so we don't split mid-exchange.
-        # Clamp: never retreat more than tail_messages additional steps, so
-        # ``older`` always retains substantial content to summarise.
-        BOUNDARY_ROLES = {"tool", "analysis", "assistant_full"}
-        max_retreat = self.tail_messages  # at most double the tail window
-        steps = 0
-        while (
-            tail_start > 1
-            and steps < max_retreat
-            and history[tail_start][0] in BOUNDARY_ROLES
-        ):
+        # The ONLY safe split point is a ``user`` message — the llama.cpp
+        # Jinja template requires every ``tool`` result to be preceded by an
+        # assistant message with a tool_call, so we must never let ``tail``
+        # begin with a tool/analysis/assistant_full row.  Walking back to the
+        # nearest ``user`` row guarantees the tail starts a complete exchange.
+        while tail_start > 0 and history[tail_start][0] != "user":
             tail_start -= 1
-            steps += 1
-
-        # If we still landed on a boundary role, just move forward until we
-        # find a clean break rather than giving up entirely.
-        while tail_start < len(history) - 1 and history[tail_start][0] in BOUNDARY_ROLES:
-            tail_start += 1
 
         if tail_start <= 0:
-            print("[compaction] could not find a clean boundary, skipping", file=sys.stderr)
+            print("[compaction] no user-message boundary found, skipping", file=sys.stderr)
             return history
 
-        # Guard: if older is less than 20% of history, compacting is pointless.
-        if tail_start < max(2, len(history) // 5):
+        # Guard: older must be at least 2 rows so there is something to summarise.
+        if tail_start < 2:
             print(
                 f"[compaction] older slice too small ({tail_start} rows), skipping",
                 file=sys.stderr,
