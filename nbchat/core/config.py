@@ -62,5 +62,10 @@ IGNORED_ITEMS = [
 CONTEXT_TOKEN_THRESHOLD = 6000
 TAIL_MESSAGES = 6
 SUMMARY_PROMPT = (
-    "Summarize the chat history so far. Be concise."
-)
+            "Summarize the conversation history above. Focus on:\n"
+            "1. Key decisions made\n"
+            "2. Important file paths and edits\n"
+            "3. Tool calls and their outcomes (summarize large outputs)\n"
+            "4. Next steps planned\n"
+            "Keep it concise but preserve essential context."
+        )
