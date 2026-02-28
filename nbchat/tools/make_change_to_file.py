@@ -1,4 +1,4 @@
-# app/tools/apply_patch.py
+# app/tools/make_change_to_file.py
 """
 Tool that applies a unified diff to a file inside the repository.
 
@@ -304,7 +304,7 @@ def _apply_chunks(input_str: str, chunks: list[Chunk], newline: str) -> str:
     return newline.join(dest_lines)
 
 
-def apply_patch(path: str, op_type: str, diff: str) -> str:
+def make_change_to_file(path: str, op_type: str, diff: str) -> str:
     """
     Apply a unified diff to a file inside the repository.
 
@@ -362,10 +362,10 @@ def apply_patch(path: str, op_type: str, diff: str) -> str:
         return json.dumps({"error": str(exc)})
 
 # Exported names for automatic tool discovery
-func = apply_patch
-name = "apply_patch"
+func = make_change_to_file
+name = "make_change_to_file"
 description = (
-    "Apply a unified diff to a file inside the repository. "
+    "Apply a unified diff to a file. It is critical that the Unified diff is formatted correctly."
     "Supports create, update and delete operations. op_type: create, update or delete"
     "Returns a JSON string with either a `result` key or an `error` key."
 )

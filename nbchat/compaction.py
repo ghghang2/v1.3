@@ -190,7 +190,7 @@ class CompactionEngine:
             msg.pop("reasoning_content", None)
 
         # Append the summarisation instruction as a user turn.
-        messages.append({"role": "user", "content": self.summary_prompt})
+        messages.append({"role": "assistant", "content": self.summary_prompt})
 
         print(
             f"[compaction] sending {len(messages)} messages to summariser",
