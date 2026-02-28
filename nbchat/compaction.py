@@ -164,6 +164,8 @@ class CompactionEngine:
             #    an incomplete tool call sequence.
             if role == "user":
                 break
+            if role == "compacted":
+                break
             if role == "assistant" and prev_role not in ["tool", "analysis"]:
                 # This suggests a new turn or a clean break in the chain
                 break
@@ -179,13 +181,13 @@ class CompactionEngine:
             print("[compaction] no user-message boundary found, skipping", file=sys.stderr)
             return history
 
-        # Guard: older must be at least 2 rows so there is something to summarise.
-        if tail_start < 2:
-            print(
-                f"[compaction] older slice too small ({tail_start} rows), skipping",
-                file=sys.stderr,
-            )
-            return history
+        # # Guard: older must be at least 2 rows so there is something to summarise.
+        # if tail_start < 2:
+        #     print(
+        #         f"[compaction] older slice too small ({tail_start} rows), skipping",
+        #         file=sys.stderr,
+        #     )
+        #     return history
 
         older = history[:tail_start]
         tail = history[tail_start:]
